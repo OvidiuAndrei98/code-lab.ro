@@ -11,7 +11,7 @@ const HeroSection = () => {
         amplitude={0.3}
         speed={0.5}
       />
-      <div className="text-white top-[20%] sm:px-4 md:top-[30%]  w-full mx-auto my-0 absolute flex flex-col justify-center items-center gap-0 md:gap-4">
+      <div className="text-white top-[20%] px-4 md:top-[30%]  w-full mx-auto my-0 absolute flex flex-col justify-center items-center gap-0 md:gap-4">
         <p className="text-[40px] md:text-[60px] text-center font-bold leading-[40px] md:leading-[70px]">
           Building Next-Gen Websites
         </p>
