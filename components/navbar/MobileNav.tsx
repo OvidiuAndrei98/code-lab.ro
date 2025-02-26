@@ -1,4 +1,3 @@
-import { Button } from "../ui/button";
 import "./MobileNav.css";
 
 const MobileNav = () => {
