@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --breakpoint-xs: 35rem;
+  --color-primary: red;
+}
+
 * {
   font-family: "Unbounded", serif;
   padding: 0;
@@ -15,8 +20,6 @@ html {
   padding: 0;
   margin: 0;
 }
-
-
 
 @layer base {
   :root {
@@ -73,8 +76,6 @@ html {
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {
