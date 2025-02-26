@@ -7,7 +7,7 @@ const HeroSection = () => {
     <div className="h-[100vh] w-full ">
       <Aurora
         colorStops={["#4E26E2", "rgba(80, 40, 226, 0.81)", "#953DF5"]}
-        blend={1}
+        blend={0.8}
         amplitude={0.3}
         speed={0.5}
       />
@@ -37,7 +37,7 @@ const HeroSection = () => {
           experiences—tailored <br /> for your success. Let’s bring your vision
           to life!
         </p>
-        <Button className="bg-[#7231EC] text-xl p-6 rounded-[14px] mt-4">
+        <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-xl p-6 rounded-[14px] mt-4">
           Schedule a 30 min call
         </Button>
       </div>

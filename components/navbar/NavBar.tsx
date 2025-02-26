@@ -1,10 +1,13 @@
+import { Button } from "../ui/button";
 import "./NavBar.css";
 
 const NavBar = () => {
   return (
     <nav className="fixed top-0 w-full pl-[150px] pr-[150px] h-[70px] mt-4">
-      <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl w-full items-center p-6">
-        <span className="text-[17px] font-light text-[#d2d2d2]">Cl</span>
+      <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl w-full items-center p-[18px]">
+        <span className="text-[20px] font-bold text-[#d2d2d2] text-nowrap">
+          CODE-LAB
+        </span>
         <ul className="flex w-full text-[#d2d2d2] text-2xl justify-between md:space-x-6 md:justify-center  gap-3">
           <li className="flex-1 md:flex-none ">
             <a
@@ -55,7 +58,12 @@ const NavBar = () => {
             </a>
           </li>
         </ul>
-        <div>LOGO</div>
+        <Button
+          variant="ghost"
+          className="navbar-button rounded-full font-light backdrop-blur-xl text-[#d2d2d2] border border-[#d2d2d2] hover:bg-[#d2d2d2] hover:text-black"
+        >
+          Contact
+        </Button>
       </div>
     </nav>
   );
