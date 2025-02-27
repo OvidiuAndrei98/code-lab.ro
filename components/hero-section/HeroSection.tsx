@@ -1,27 +1,43 @@
+"use client";
 import Aurora from "../aurora/Aurora";
 import RotatingText from "../rotating-text/RotatingText";
 import { Button } from "@/components/ui/button";
+import AnimatedContent from "@/components/animated-content/AnimatedContent";
+import AnimatedSlider from "../animated-slider/AnimatedSlider";
 
 const HeroSection = () => {
   return (
-    <div className="h-[100vh] w-full ">
+    <div className="h-[100%] w-full ">
       <Aurora
-        colorStops={["#4E26E2", "rgba(80, 40, 226, 0.81)", "#953DF5"]}
+        colorStops={["#4E26E2", "#000000", "#953DF5"]}
         blend={0.8}
         amplitude={0.3}
-        speed={0.5}
+        speed={1.2}
       />
-      <div className="text-white top-[20%] px-4 md:top-[30%]  w-full mx-auto my-0 absolute flex flex-col justify-center items-center gap-0 md:gap-4">
-        <p className="text-[40px] md:text-[60px] text-center font-bold leading-[40px] md:leading-[70px]">
+
+      <AnimatedContent
+        distance={150}
+        direction="vertical"
+        reverse={false}
+        config={{ tension: 80, friction: 20 }}
+        initialOpacity={0.2}
+        animateOpacity
+        scale={1}
+        threshold={0.2}
+        classNamme={
+          "text-white top-[20%] px-4 md:top-[30%]  w-full mx-auto my-0 relative flex flex-col justify-center items-center gap-0 md:gap-4"
+        }
+      >
+        <p className="text-[48px] md:text-[60px] text-center font-bold leading-[48px] md:leading-[70px]">
           Building Next-Gen Websites
         </p>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-2 justify-center items-center">
-          <p className="text-[40px] md:text-[60px] text-center font-bold leading-[40px] md:leading-[70px]">
+          <p className="text-[48px] md:text-[60px] text-center font-bold leading-[48px] md:leading-[70px]">
             That Drive
           </p>
           <RotatingText
-            texts={["Succes", "Results"]}
-            mainClassName="px-2 sm:px-2 md:px-3 bg-[#7231EC] text-[30px] md:text-[60px] font-bold  text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg max-w-[300px]"
+            texts={["Succes", "Results", "Growth"]}
+            mainClassName="px-2 sm:px-2 md:px-3 bg-[#7231EC] text-[48px] md:text-[60px] font-bold  text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg max-w-[300px]"
             staggerFrom={"last"}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -40,7 +56,7 @@ const HeroSection = () => {
         <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-5 md:p-6 rounded-[8px] mt-8 md:mt-4">
           Schedule a 30 min call
         </Button>
-      </div>
+      </AnimatedContent>
     </div>
   );
 };

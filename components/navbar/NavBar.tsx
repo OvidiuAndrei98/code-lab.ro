@@ -1,3 +1,4 @@
+import ShinyText from "../shiny-text/ShinyText";
 import { Button } from "../ui/button";
 import "./NavBar.css";
 
@@ -74,7 +75,7 @@ const NavBar = () => {
           variant="ghost"
           className="navbar-button rounded-full font-light backdrop-blur-xl text-[#d2d2d2] border border-[#d2d2d2] hover:bg-[#d2d2d2] hover:text-black"
         >
-          Contact
+          <ShinyText text="Contact" disabled={false} speed={3} />
         </Button>
       </div>
     </nav>
