@@ -40,7 +40,7 @@ const AnimatedSlider = () => {
   }, []);
 
   return (
-    <div className="scroller my-8 relative w-full" data-speed="fast">
+    <div className="scroller relative w-full" data-speed="fast">
       <ul className="tag-list scroller__inner">
         <li className="w-[300px] md:w-[400px] rounded-xl">
           <Image
