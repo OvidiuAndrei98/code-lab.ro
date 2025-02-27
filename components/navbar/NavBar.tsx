@@ -11,7 +11,7 @@ const NavBar = () => {
     const navLi = document.querySelectorAll(".navbar ul li");
 
     window.addEventListener("scroll", () => {
-      var current = "";
+      let current = "";
 
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
