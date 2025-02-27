@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import "./MobileNav.css";
 
 const MobileNav = () => {
