@@ -6,7 +6,7 @@ import AnimatedContent from "@/components/animated-content/AnimatedContent";
 
 const HeroSection = () => {
   return (
-    <div className="h-[90vh] w-full">
+    <div className="h-[90dvh] w-full">
       <Aurora
         colorStops={["#4E26E2", "#000000", "#953DF5"]}
         blend={0.8}
