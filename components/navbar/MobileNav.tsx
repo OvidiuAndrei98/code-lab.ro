@@ -1,14 +1,10 @@
 import { useState } from "react";
 import "./MobileNav.css";
+import Image from "next/image";
+import LogoWihte from "@/public/logo-white.svg";
 
 const MobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // useEffect(() => {
-  //   const drawerInput = document.getElementById(
-  //     "drawer-input"
-  //   ) as HTMLInputElement;
-  //   setIsMenuOpen(drawerInput.checked);
-  // }, []);
 
   const handleMenuClick = () => {
     const drawerInput = document.getElementById(
@@ -20,9 +16,7 @@ const MobileNav = () => {
   return (
     <div className="header">
       <div className="overlay-blocker w-[72%] sm:w-[84%]"></div>
-      <span className="text-[20px] font-bold text-[#d2d2d2] text-nowrap">
-        CODE-LAB
-      </span>
+      <Image src={LogoWihte} alt="logo" width={100} />
       <input
         className="hidden"
         id="drawer-input"

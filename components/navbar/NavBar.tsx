@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ShinyText from "../shiny-text/ShinyText";
 import { Button } from "../ui/button";
 import "./NavBar.css";
+import LogoWihte from "@/public/logo-white.svg";
+import Image from "next/image";
 
 const NavBar = () => {
   const [hrefUrlAnchor, setHrefUrlAnchor] = useState("");
@@ -43,9 +45,7 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 w-full h-[70px] mt-4 px-[24px] z-[99]">
       <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl items-center p-[18px] ">
-        <span className="text-[20px] font-bold text-[#d2d2d2] text-nowrap">
-          CODE-LAB
-        </span>
+        <Image src={LogoWihte} alt="logo" width={100} />
         <ul className="flex w-full text-[#d2d2d2] text-2xl justify-between md:space-x-6 md:justify-center">
           <li className="flex-1 md:flex-none ">
             <a
