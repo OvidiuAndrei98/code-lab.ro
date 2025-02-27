@@ -1,16 +1,85 @@
 import "./MobileNav.css";
 
 const MobileNav = () => {
-  return (
-    <nav className="fixed top-0 w-full  h-[70px] mt-4 px-4">
-      <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl w-full items-center p-[18px]">
-        <span className="text-[20px] font-bold text-[#d2d2d2] text-nowrap">
-          CODE-LAB
-        </span>
+  const handleMenuClick = () => {
+    const drawerInput = document.getElementById(
+      "drawer-input"
+    ) as HTMLInputElement;
+    if (drawerInput) drawerInput.click();
+  };
 
-        <span>menu</span>
-      </div>
-    </nav>
+  return (
+    <div className="header">
+      <div className="overlay-blocker w-[72%] sm:w-[84%]"></div>
+      <span className="text-[20px] font-bold text-[#d2d2d2] text-nowrap">
+        CODE-LAB
+      </span>
+      <input className="hidden" id="drawer-input" type="checkbox" />
+      <label
+        htmlFor="drawer-input"
+        className="drawer-open text-[12px] text-[#a0a0a0] hover:text-white"
+      >
+        <span></span>
+      </label>
+      <nav className="nav-content backdrop-blur-xl">
+        <ul className="items">
+          <li
+            className="item text-xl text-[#a0a0a0] hover:text-white"
+            onClick={handleMenuClick}
+          >
+            <a href="#services">
+              <p>001</p>
+              <p>Services</p>
+            </a>
+          </li>
+          <li
+            className="item text-xl text-[#a0a0a0] hover:text-white"
+            onClick={handleMenuClick}
+          >
+            <a href="#">
+              <p>002</p>
+              <p>Methodology</p>
+            </a>
+          </li>
+          <li
+            className="item text-xl text-[#a0a0a0] hover:text-white"
+            onClick={handleMenuClick}
+          >
+            <a href="#">
+              <p>003</p>
+              <p>Benefits</p>
+            </a>
+          </li>
+          <li
+            className="item text-xl text-[#a0a0a0] hover:text-white"
+            onClick={handleMenuClick}
+          >
+            <a href="#">
+              <p>004</p>
+              <p>Pricing</p>
+            </a>
+          </li>
+          <li
+            className="item text-xl text-[#a0a0a0] hover:text-white"
+            onClick={handleMenuClick}
+          >
+            <a href="#">
+              <p>005</p>
+              <p>FAQ</p>
+            </a>
+          </li>
+          <li
+            className="item text-xl text-[#a0a0a0] hover:text-white"
+            onClick={handleMenuClick}
+          >
+            <a href="#">
+              <p>006</p>
+              <p>Contact</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 

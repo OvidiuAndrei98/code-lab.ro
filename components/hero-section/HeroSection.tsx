@@ -6,11 +6,11 @@ import AnimatedContent from "@/components/animated-content/AnimatedContent";
 
 const HeroSection = () => {
   return (
-    <div className="h-[100%] w-full ">
+    <div className="h-[90vh] w-full">
       <Aurora
         colorStops={["#4E26E2", "#000000", "#953DF5"]}
         blend={0.8}
-        amplitude={0.3}
+        amplitude={0.5}
         speed={1.2}
       />
 
@@ -24,7 +24,7 @@ const HeroSection = () => {
         scale={1}
         threshold={0.2}
         classNamme={
-          "text-white top-[20%] px-4 md:top-[30%]  w-full mx-auto my-0 relative flex flex-col justify-center items-center gap-0 md:gap-4"
+          "text-white top-[20%] px-4 md:top-[30%]  w-full mx-auto my-0 absolute flex flex-col justify-center items-center gap-0 md:gap-4"
         }
       >
         <p className="text-[48px] md:text-[60px] text-center font-bold leading-[48px] md:leading-[70px]">

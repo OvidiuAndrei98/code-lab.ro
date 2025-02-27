@@ -9,7 +9,7 @@ import LetterGlitch from "../letter-glitch/LetterGlitch";
 
 const ServicesSection = () => {
   return (
-    <div>
+    <div id="services" className="pt-[100px] section">
       <div className="text-white flex flex-col justify-center items-center gap-4 p-4">
         <span className="text-center text-xl text-[#C8C8C8]">SERVICES</span>
         <span className="text-center text-center text-4xl font-bold">

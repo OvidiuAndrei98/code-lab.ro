@@ -1,10 +1,47 @@
+import { useEffect, useState } from "react";
 import ShinyText from "../shiny-text/ShinyText";
 import { Button } from "../ui/button";
 import "./NavBar.css";
 
 const NavBar = () => {
+  const [hrefUrlAnchor, setHrefUrlAnchor] = useState("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll(".section");
+    const navLi = document.querySelectorAll(".navbar ul li");
+
+    window.addEventListener("scroll", () => {
+      var current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        if (pageYOffset >= sectionTop - 300) {
+          const id = section.getAttribute("id");
+          if (id) {
+            current = id;
+          }
+        }
+      });
+
+      navLi.forEach((li) => {
+        li.children[0].classList.remove("active");
+        if (li.children[0].classList.contains(current)) {
+          li.children[0].classList.add("active");
+        }
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    setHrefUrlAnchor(window.location.href.split("#")[1]);
+    const activeElement = document.querySelector(`a[href="#${hrefUrlAnchor}"]`);
+    if (activeElement) {
+      activeElement.classList.add("active");
+    }
+  }, [hrefUrlAnchor]);
+
   return (
-    <nav className="fixed top-0 w-full h-[70px] mt-4 px-[24px]">
+    <nav className="fixed top-0 w-full h-[70px] mt-4 px-[24px] z-[99]">
       <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl items-center p-[18px] ">
         <span className="text-[20px] font-bold text-[#d2d2d2] text-nowrap">
           CODE-LAB
@@ -12,11 +49,11 @@ const NavBar = () => {
         <ul className="flex w-full text-[#d2d2d2] text-2xl justify-between md:space-x-6 md:justify-center">
           <li className="flex-1 md:flex-none ">
             <a
-              href="#home"
-              className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base active"
+              href="#services"
+              className="services flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base active"
             >
-              <span className="text-[12px] lg:text-[17px] font-light ">
-                Home
+              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
+                Services
               </span>
             </a>
           </li>
@@ -25,8 +62,8 @@ const NavBar = () => {
               href="#projects"
               className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
             >
-              <span className="text-[12px] lg:text-[17px] font-light ">
-                Projects
+              <span className="text-[12px] lg:text-[17px] text-[#a0a0a0] hover:text-white font-light ">
+                methodology
               </span>
             </a>
           </li>
@@ -35,8 +72,8 @@ const NavBar = () => {
               href="#projects"
               className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
             >
-              <span className="text-[12px] lg:text-[17px] font-light ">
-                Projects
+              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
+                Benefits
               </span>
             </a>
           </li>
@@ -45,8 +82,8 @@ const NavBar = () => {
               href="#projects"
               className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
             >
-              <span className="text-[12px] lg:text-[17px] font-light ">
-                Projects
+              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
+                Pricing
               </span>
             </a>
           </li>
@@ -55,8 +92,8 @@ const NavBar = () => {
               href="#projects"
               className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
             >
-              <span className="text-[12px] lg:text-[17px] font-light ">
-                Projects
+              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
+                FAQ
               </span>
             </a>
           </li>
@@ -65,8 +102,8 @@ const NavBar = () => {
               href="#contact"
               className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
             >
-              <span className="text-[12px] lg:text-[17px] font-light ">
-                Home
+              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
+                Contact
               </span>
             </a>
           </li>

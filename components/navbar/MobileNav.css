@@ -1,0 +1,137 @@
+.drawer-open {
+  width: 50px;
+  height: 75px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: all;
+}
+
+.drawer-open span,
+.drawer-open span:before,
+.drawer-open span:after {
+  content: "";
+  height: 2.5px;
+  width: 25px;
+  background-color: currentColor;
+  transition: 400ms 350ms;
+  position: absolute;
+}
+
+.drawer-open span:before {
+  bottom: 8px;
+}
+
+.drawer-open span:after {
+  top: 8px;
+}
+
+#drawer-input:checked ~ .drawer-open span {
+  width: 0px;
+  transition: 100ms;
+}
+
+#drawer-input:checked ~ .drawer-open span::before {
+  bottom: 0;
+  transition: all 400ms 100ms cubic-bezier(0.1, 0, 0.85, 0);
+  transform: rotate(45deg);
+}
+
+#drawer-input:checked ~ .drawer-open span::after {
+  top: 0;
+  transition: all 400ms 100ms cubic-bezier(0.1, 0, 0.85, 0);
+  transform: rotate(-45deg);
+}
+
+#drawer-input:checked ~ .nav-content {
+  transition: all 500ms cubic-bezier(0.1, 0, 0.8, 0);
+  height: calc(100vh - 30px);
+}
+
+#drawer-input:checked ~ .nav-content .items {
+  opacity: 1;
+  transition: 1500ms 600ms;
+}
+
+.hidden {
+  display: none;
+}
+
+.header {
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  width: 100%;
+  padding: 20px 20px 20px 40px;
+  .overlay-blocker {
+    height: 100%;
+    position: absolute;
+    pointer-events: all;
+    z-index: 999;
+  }
+}
+
+.items {
+  width: 100%;
+  min-width: 300px;
+  margin: 0 15px 0;
+}
+
+.item {
+  padding: 12px;
+  list-style: none;
+  border-bottom: solid 2px currentColor;
+}
+
+.item:first-child {
+  border-top: solid 2px currentColor;
+}
+
+.item a {
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item a p {
+  transition: 150ms;
+}
+
+.nav-content {
+  pointer-events: all;
+  position: fixed;
+  height: 75px;
+  width: calc(100vw - 40px);
+  left: 0;
+  top: 0;
+  margin: 20px;
+  min-width: 300px;
+  border-radius: 38px;
+  transition: 400ms 300ms;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3253676470588235) 100%
+  );
+}
+
+.nav-content .items {
+  opacity: 0;
+  transition: 350ms;
+  margin-top: 75px;
+  padding-inline-start: 0px;
+  background-color: rgba(0, 0, 0, 0);
+}
