@@ -1,6 +1,6 @@
 .scroller {
   background-color: black;
-  /* top: -100px; */
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .scroller__inner {
