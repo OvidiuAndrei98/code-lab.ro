@@ -1,6 +1,15 @@
+import { use, useEffect, useState } from "react";
 import "./MobileNav.css";
 
 const MobileNav = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // useEffect(() => {
+  //   const drawerInput = document.getElementById(
+  //     "drawer-input"
+  //   ) as HTMLInputElement;
+  //   setIsMenuOpen(drawerInput.checked);
+  // }, []);
+
   const handleMenuClick = () => {
     const drawerInput = document.getElementById(
       "drawer-input"
@@ -14,14 +23,26 @@ const MobileNav = () => {
       <span className="text-[20px] font-bold text-[#d2d2d2] text-nowrap">
         CODE-LAB
       </span>
-      <input className="hidden" id="drawer-input" type="checkbox" />
+      <input
+        className="hidden"
+        id="drawer-input"
+        type="checkbox"
+        checked={isMenuOpen}
+        onClick={() => {
+          setIsMenuOpen(!isMenuOpen);
+        }}
+      />
       <label
         htmlFor="drawer-input"
         className="drawer-open text-[12px] text-[#a0a0a0] hover:text-white"
       >
         <span></span>
       </label>
-      <nav className="nav-content backdrop-blur-xl">
+      <nav
+        className={`nav-content backdrop-blur-xl ${
+          isMenuOpen ? "" : "disabled"
+        }`}
+      >
         <ul className="items">
           <li
             className="item text-xl text-[#a0a0a0] hover:text-white"
