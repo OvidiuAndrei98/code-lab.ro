@@ -47,7 +47,7 @@
 
 #drawer-input:checked ~ .nav-content {
   transition: all 500ms cubic-bezier(0.1, 0, 0.8, 0);
-  height: calc(100vh - 30px);
+  height: calc(100dvh - 40px);
 }
 
 #drawer-input:checked ~ .nav-content .items {
