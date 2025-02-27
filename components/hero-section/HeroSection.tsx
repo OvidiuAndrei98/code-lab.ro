@@ -24,7 +24,7 @@ const HeroSection = () => {
         scale={1}
         threshold={0.2}
         classNamme={
-          "text-white top-[20%] px-4 md:top-[30%]  w-full mx-auto my-0 absolute flex flex-col justify-center items-center gap-0 md:gap-4"
+          "text-white top-[20%] px-4 md:top-[30%]  w-full mx-auto my-0 absolute flex flex-col justify-center items-center gap-0 md:gap-4 h-[60%]"
         }
       >
         <p className="text-[48px] md:text-[60px] text-center font-bold leading-[48px] md:leading-[70px]">
