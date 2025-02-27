@@ -3,7 +3,6 @@ import Aurora from "../aurora/Aurora";
 import RotatingText from "../rotating-text/RotatingText";
 import { Button } from "@/components/ui/button";
 import AnimatedContent from "@/components/animated-content/AnimatedContent";
-import AnimatedSlider from "../animated-slider/AnimatedSlider";
 
 const HeroSection = () => {
   return (
