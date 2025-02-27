@@ -21,7 +21,7 @@ const MobileNav = () => {
         className="hidden"
         id="drawer-input"
         type="checkbox"
-        checked={isMenuOpen}
+        defaultChecked={isMenuOpen}
         onClick={() => {
           setIsMenuOpen(!isMenuOpen);
         }}

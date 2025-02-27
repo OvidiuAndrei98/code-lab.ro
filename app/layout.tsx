@@ -1,32 +1,27 @@
-"use client";
-import NavBar from "@/components/navbar/NavBar";
 import "./globals.css";
-import { useEffect, useState } from "react";
-import MobileNav from "@/components/navbar/MobileNav";
+import type { Metadata } from "next";
+import NavigationMenu from "@/components/navbar/NavigationMenu";
+
+export const metadata: Metadata = {
+  generator: "Next.js",
+  applicationName: "code-lab.ro",
+  referrer: "origin-when-cross-origin",
+  publisher: "code-lab.ro",
+  title: {
+    absolute: "Codelab",
+  },
+  description: "",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [windowSize, setWindowSize] = useState<number>(0);
-
-  useEffect(() => {
-    if (typeof window != "undefined") {
-      // Set initial value of window witth
-      setWindowSize(window.innerWidth);
-
-      window.addEventListener("resize", () => {
-        setWindowSize(window.innerWidth);
-      });
-    }
-  }, []);
-
   return (
     <html lang="en">
       <body>
-        {windowSize > 780 ? <NavBar /> : <MobileNav />}
-
+        <NavigationMenu />
         {children}
       </body>
     </html>
