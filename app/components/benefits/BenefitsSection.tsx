@@ -45,7 +45,7 @@ const BenefitsSection = () => {
       <div className="absolute overflow-hidden w-[1000px] lg:w-full h-full opacity-[0.5] lg:opacity-[1]">
         <Threads
           amplitude={1.5}
-          distance={1}
+          distance={0.9}
           enableMouseInteraction={false}
           color={[3, 0, 236]}
         />

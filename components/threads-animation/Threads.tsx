@@ -31,9 +31,9 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-const int u_line_count = 40;
-const float u_line_width = 7.0;
-const float u_line_blur = 10.0;
+const int u_line_count = 17;
+const float u_line_width = 5.0;
+const float u_line_blur = 5.0;
 
 float pixel(float count, vec2 resolution) {
     return 1.0 / max(resolution.x, resolution.y) * count;
