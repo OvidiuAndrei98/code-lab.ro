@@ -42,7 +42,7 @@ const BenefitsSection = () => {
           </span>
         </div>
       </div>
-      <div className="absolute w-full h-full opacity-[0.5] lg:opacity-[1]">
+      <div className="absolute overflow-hidden w-[1000px] lg:w-full h-full opacity-[0.5] lg:opacity-[1]">
         <Threads
           amplitude={1.5}
           distance={1}
