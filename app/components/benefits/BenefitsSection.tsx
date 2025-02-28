@@ -1,7 +1,23 @@
+"use client";
+
 import Threads from "@/components/threads-animation/Threads";
 import "./BenefitsSection.css";
+import { useEffect, useState } from "react";
 
 const BenefitsSection = () => {
+  const [windowSize, setWindowSize] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      // Set initial value of window witth
+      setWindowSize(window.innerWidth);
+
+      window.addEventListener("resize", () => {
+        setWindowSize(window.innerWidth);
+      });
+    }
+  }, []);
+
   return (
     <div
       id="benefits"
@@ -44,10 +60,11 @@ const BenefitsSection = () => {
       </div>
       <div className="absolute overflow-hidden w-[1000px] lg:w-full h-full opacity-[0.5] lg:opacity-[1]">
         <Threads
+          numberOfLines={windowSize > 1024 ? 17 : 12}
           amplitude={1.5}
-          distance={0.9}
+          distance={1}
           enableMouseInteraction={false}
-          color={[3, 0, 236]}
+          color={[windowSize > 1024 ? 3 : 12, 0, 236]}
         />
       </div>
     </div>
