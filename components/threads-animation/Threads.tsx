@@ -179,7 +179,7 @@ const Threads: React.FC<ThreadsProps> = ({
     resize();
 
     // Variables to smoothly interpolate the mouse position.
-    let currentMouse = [0.5, 0.5];
+    const currentMouse = [0.5, 0.5];
     let targetMouse = [0.5, 0.5];
 
     function handleMouseMove(e: MouseEvent) {
