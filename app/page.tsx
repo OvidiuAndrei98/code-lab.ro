@@ -4,6 +4,7 @@
 import AnimatedSlider from "@/components/animated-slider/AnimatedSlider";
 import HeroSection from "@/components/hero-section/HeroSection";
 import ServicesSection from "@/components/services-section/ServicesSection";
+import BenefitsSection from "./components/benefits/BenefitsSection";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <AnimatedSlider />
       <ServicesSection />
+      <BenefitsSection />
     </div>
   );
 }
