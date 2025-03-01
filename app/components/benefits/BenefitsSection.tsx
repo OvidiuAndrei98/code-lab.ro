@@ -7,6 +7,7 @@ import BenefitsImage from "../../../public/benefits_animation.png";
 import { useEffect, useState } from "react";
 
 const BenefitsSection = () => {
+  const [windowSize, setWindowSize] = useState<number>(0);
   const [isAndroid, setIsAndroid] = useState(false);
 
   function getMobileOperatingSystem() {
@@ -24,6 +25,14 @@ const BenefitsSection = () => {
 
   useEffect(() => {
     getMobileOperatingSystem();
+    if (typeof window != "undefined") {
+      // Set initial value of window witth
+      setWindowSize(window.innerWidth);
+
+      window.addEventListener("resize", () => {
+        setWindowSize(window.innerWidth);
+      });
+    }
   }, []);
 
   return (
@@ -77,10 +86,11 @@ const BenefitsSection = () => {
           <Image src={BenefitsImage} alt="benefits" />
         ) : (
           <Threads
+            numberOfLines={windowSize > 1024 ? 17 : 12}
             amplitude={1.5}
             distance={1}
             enableMouseInteraction={false}
-            color={[3, 0, 236]}
+            color={[windowSize > 1024 ? 3 : 12, 0, 236]}
           />
         )}
       </div>

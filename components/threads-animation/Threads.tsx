@@ -20,7 +20,15 @@ void main() {
 }
 `;
 
-const fragmentShader = `
+const Threads: React.FC<ThreadsProps & { numberOfLines: number }> = ({
+  numberOfLines = 17,
+  color = [1, 1, 1],
+  amplitude = 1,
+  distance = 0,
+  enableMouseInteraction = false,
+  ...rest
+}) => {
+  const fragmentShader = `
 precision highp float;
 uniform float iTime;
 uniform vec3 iResolution;
@@ -31,9 +39,9 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-const int u_line_count = 40;
-const float u_line_width = 7.0;
-const float u_line_blur = 10.0;
+const int u_line_count = ${numberOfLines};
+const float u_line_width = 5.0;
+const float u_line_blur = 5.0;
 
 float pixel(float count, vec2 resolution) {
     return 1.0 / max(resolution.x, resolution.y) * count;
@@ -124,13 +132,6 @@ void main() {
 }
 `;
 
-const Threads: React.FC<ThreadsProps> = ({
-  color = [1, 1, 1],
-  amplitude = 1,
-  distance = 0,
-  enableMouseInteraction = false,
-  ...rest
-}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number>(0);
 

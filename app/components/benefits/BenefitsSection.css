@@ -1,4 +1,4 @@
 .benefit-card {
-  background: rgb(91 91 91 / 17%);
-  backdrop-filter: blur(18px);
+  background: rgb(91 91 91 / 0.1);
+  backdrop-filter: blur(5px);
 }
