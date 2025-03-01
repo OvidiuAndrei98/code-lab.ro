@@ -226,7 +226,7 @@ void main() {
       if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [color, amplitude, distance, enableMouseInteraction]);
+  }, [color, amplitude, distance, enableMouseInteraction, fragmentShader]);
 
   return (
     <div ref={containerRef} className="w-full h-full relative" {...rest} />
