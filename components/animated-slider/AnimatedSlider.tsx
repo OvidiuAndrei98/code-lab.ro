@@ -4,6 +4,10 @@ import Showcase1 from "../../public/showcase1.png";
 import Showcase2 from "../../public/showcase2.png";
 import Showcase3 from "../../public/showcase3.png";
 import Showcase4 from "../../public/showcase4.png";
+import Showcase5 from "../../public/showcase5.png";
+import Showcase6 from "../../public/showcase6.png";
+import Showcase7 from "../../public/showcase7.png";
+
 import Image from "next/image";
 
 import { useEffect } from "react";
@@ -52,21 +56,42 @@ const AnimatedSlider = () => {
         <li className="w-[300px] md:w-[400px] rounded-xl">
           <Image
             src={Showcase2}
-            alt="showcase1"
+            alt="showcase2"
+            className="h-[190px] md:h-[250px] rounded-xl"
+          />
+        </li>
+        <li className="w-[300px] md:w-[400px] rounded-xl">
+          <Image
+            src={Showcase5}
+            alt="showcase5"
             className="h-[190px] md:h-[250px] rounded-xl"
           />
         </li>
         <li className="w-[300px] md:w-[400px] rounded-xl">
           <Image
             src={Showcase4}
-            alt="showcase1"
+            alt="showcase4"
             className="h-[190px] md:h-[250px] rounded-lg"
           />
         </li>
         <li className="w-[300px] md:w-[400px] rounded-xl">
           <Image
+            src={Showcase6}
+            alt="showcase6"
+            className="h-[190px] md:h-[250px] rounded-xl"
+          />
+        </li>
+        <li className="w-[300px] md:w-[400px] rounded-xl">
+          <Image
             src={Showcase3}
-            alt="showcase1"
+            alt="showcase3"
+            className="h-[190px] md:h-[250px] rounded-xl"
+          />
+        </li>
+        <li className="w-[300px] md:w-[400px] rounded-xl">
+          <Image
+            src={Showcase7}
+            alt="showcase7"
             className="h-[190px] md:h-[250px] rounded-xl"
           />
         </li>
