@@ -38,7 +38,7 @@ const BenefitsSection = () => {
   return (
     <div
       id="benefits"
-      className="section w-full flex flex-col justify-center mt-[100px] relative px-4"
+      className="section w-full flex flex-col justify-center pt-[100px] relative px-4"
     >
       <div className="max-w-[1200px] mx-[auto] w-full flex flex-col justify-center gap-4 max-w-[700px]">
         <span className="text-center text-xl text-[#C8C8C8] ">BENEFITS</span>
@@ -86,9 +86,9 @@ const BenefitsSection = () => {
           <Image src={BenefitsImage} alt="benefits" />
         ) : (
           <Threads
-            numberOfLines={windowSize > 1024 ? 17 : 12}
+            numberOfLines={windowSize > 1024 ? 3 : 3}
             amplitude={1.5}
-            distance={1}
+            distance={0.5}
             enableMouseInteraction={false}
             color={[windowSize > 1024 ? 3 : 12, 0, 236]}
           />
