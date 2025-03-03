@@ -1,9 +1,7 @@
 "use client";
 import Aurora from "../aurora/Aurora";
 import RotatingText from "../rotating-text/RotatingText";
-import { Button } from "@/components/ui/button";
 import AnimatedContent from "@/components/animated-content/AnimatedContent";
-import { redirect, RedirectType } from "next/navigation";
 import Link from "next/link";
 
 const HeroSection = () => {
