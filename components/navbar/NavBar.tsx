@@ -63,7 +63,7 @@ const NavBar = () => {
               className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
             >
               <span className="text-[12px] lg:text-[17px] text-[#a0a0a0] hover:text-white font-light ">
-                methodology
+                Methodology
               </span>
             </a>
           </li>
