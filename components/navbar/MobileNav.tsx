@@ -60,7 +60,7 @@ const MobileNav = () => {
             className="item text-xl text-[#a0a0a0] hover:text-white"
             onClick={handleMenuClick}
           >
-            <a href="#">
+            <a href="#benefits">
               <p>003</p>
               <p>Benefits</p>
             </a>
@@ -69,7 +69,7 @@ const MobileNav = () => {
             className="item text-xl text-[#a0a0a0] hover:text-white"
             onClick={handleMenuClick}
           >
-            <a href="#">
+            <a href="#prices">
               <p>004</p>
               <p>Pricing</p>
             </a>
