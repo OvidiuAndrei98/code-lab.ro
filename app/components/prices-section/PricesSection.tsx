@@ -2,6 +2,7 @@ import SpotlightCard from "@/components/spotlight-card/SpotlightCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { CheckIcon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const PricesSection: React.FC = () => {
@@ -29,9 +30,13 @@ const PricesSection: React.FC = () => {
           <span className="text-[#C8C8C8] text-sm">1 page</span>
           <Separator className="my-4" />
           <span className="text-5xl font-bold">500€</span>
-          <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-5 md:p-6 rounded-[8px] mt-8 md:mt-4 w-full">
+          <Link
+            className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
+            href="https://calendly.com/contact-code-lab/discovery-call"
+            target="_blank"
+          >
             Learn more
-          </Button>
+          </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
             <CheckIcon />
@@ -56,9 +61,13 @@ const PricesSection: React.FC = () => {
           <span className="text-[#C8C8C8] text-sm">2-4 pages</span>
           <Separator className="my-4" />
           <span className="text-5xl font-bold">750€</span>
-          <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-5 md:p-6 rounded-[8px] mt-8 md:mt-4 w-full">
+          <Link
+            className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
+            href="https://calendly.com/contact-code-lab/discovery-call"
+            target="_blank"
+          >
             Learn more
-          </Button>
+          </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
             <CheckIcon />
@@ -83,9 +92,13 @@ const PricesSection: React.FC = () => {
           <span className="text-[#C8C8C8] text-sm">3+ pages</span>
           <Separator className="my-4" />
           <span className="text-5xl font-bold">750€</span>
-          <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-5 md:p-6 rounded-[8px] mt-8 md:mt-4 w-full">
+          <Link
+            className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
+            href="https://calendly.com/contact-code-lab/discovery-call"
+            target="_blank"
+          >
             Learn more
-          </Button>
+          </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
             <CheckIcon />
@@ -114,9 +127,13 @@ const PricesSection: React.FC = () => {
           <span className="text-[#C8C8C8] text-sm">4+ page</span>
           <Separator className="my-4" />
           <span className="text-5xl font-bold">1200€</span>
-          <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-5 md:p-6 rounded-[8px] mt-8 md:mt-4 w-full">
+          <Link
+            className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
+            href="https://calendly.com/contact-code-lab/discovery-call"
+            target="_blank"
+          >
             Learn more
-          </Button>
+          </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
             <CheckIcon />
@@ -145,9 +162,13 @@ const PricesSection: React.FC = () => {
           <span className="text-[#C8C8C8] text-sm">5+ pages</span>
           <Separator className="my-4" />
           <span className="text-5xl font-bold">2000€</span>
-          <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-5 md:p-6 rounded-[8px] mt-8 md:mt-4 w-full">
+          <Link
+            className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
+            href="https://calendly.com/contact-code-lab/discovery-call"
+            target="_blank"
+          >
             Learn more
-          </Button>
+          </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
             <CheckIcon />

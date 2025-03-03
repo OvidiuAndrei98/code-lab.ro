@@ -3,6 +3,8 @@ import Aurora from "../aurora/Aurora";
 import RotatingText from "../rotating-text/RotatingText";
 import { Button } from "@/components/ui/button";
 import AnimatedContent from "@/components/animated-content/AnimatedContent";
+import { redirect, RedirectType } from "next/navigation";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -52,9 +54,14 @@ const HeroSection = () => {
           experiences—tailored <br /> for your success. Let’s bring your vision
           to life!
         </p>
-        <Button className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-5 md:p-6 rounded-[8px] mt-8 md:mt-4">
+
+        <Link
+          className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4"
+          href="https://calendly.com/contact-code-lab/discovery-call"
+          target="_blank"
+        >
           Schedule a 30 min call
-        </Button>
+        </Link>
       </AnimatedContent>
     </div>
   );
