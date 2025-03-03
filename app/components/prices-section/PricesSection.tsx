@@ -22,7 +22,7 @@ const PricesSection: React.FC = () => {
       </div>
       <div className="flex justify-center mt-6 text-white flex-wrap gap-5">
         <SpotlightCard
-          className="custom-spotlight-card flex flex-col w-full max-w-[376px] md:max-w-[356px]"
+          className="custom-spotlight-card flex flex-col w-full max-w-[356px] "
           spotlightColor="rgba(114, 49, 236, 0.24)"
         >
           <h3 className="text-xl">Landing page</h3>
@@ -53,7 +53,7 @@ const PricesSection: React.FC = () => {
           </div>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card w-full max-w-[376px] md:max-w-[356px]"
+          className="custom-spotlight-card w-full max-w-[356px]  lg:"
           spotlightColor="rgba(114, 49, 236, 0.24)"
         >
           <h3 className="text-xl">Small website</h3>
@@ -84,7 +84,7 @@ const PricesSection: React.FC = () => {
           </div>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card w-full max-w-[376px] md:max-w-[356px]"
+          className="custom-spotlight-card w-full max-w-[356px] "
           spotlightColor="rgba(114, 49, 236, 0.24)"
         >
           <h3 className="text-xl">Online shop</h3>
@@ -119,7 +119,7 @@ const PricesSection: React.FC = () => {
           </div>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card w-full max-w-[376px] md:max-w-[356px]"
+          className="custom-spotlight-card w-full max-w-[356px] "
           spotlightColor="rgba(114, 49, 236, 0.24)"
         >
           <h3 className="text-xl">Complex website</h3>
@@ -154,7 +154,7 @@ const PricesSection: React.FC = () => {
           </div>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card w-full max-w-[376px] md:max-w-[356px]"
+          className="custom-spotlight-card w-full max-w-[356px]"
           spotlightColor="rgba(114, 49, 236, 0.24)"
         >
           <h3 className="text-xl">Web application</h3>

@@ -87,7 +87,7 @@ const MobileNav = () => {
             className="item text-xl text-[#a0a0a0] hover:text-white"
             onClick={handleMenuClick}
           >
-            <a href="#">
+            <a href="#contact">
               <p>006</p>
               <p>Contact</p>
             </a>

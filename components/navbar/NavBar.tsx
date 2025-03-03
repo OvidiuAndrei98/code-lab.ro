@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import "./NavBar.css";
 import LogoWihte from "@/public/logo-white.svg";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 const NavBar = () => {
   const [hrefUrlAnchor, setHrefUrlAnchor] = useState("");
@@ -97,20 +98,11 @@ const NavBar = () => {
               </span>
             </a>
           </li>
-          <li className="flex-1 md:flex-none">
-            <a
-              href="#contact"
-              className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
-            >
-              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
-                Contact
-              </span>
-            </a>
-          </li>
         </ul>
         <Button
           variant="ghost"
           className="navbar-button rounded-full font-light backdrop-blur-xl text-[#d2d2d2] border border-[#d2d2d2] hover:bg-[#d2d2d2] hover:text-black"
+          onClick={() => redirect("#contact")}
         >
           <ShinyText text="Contact" disabled={false} speed={3} />
         </Button>
