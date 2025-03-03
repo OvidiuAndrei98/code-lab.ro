@@ -74,7 +74,9 @@ const Contact: React.FC = () => {
           </div>
           <div className="flex gap-2 items-center">
             <MapPin />
-            Intrarea Naruja Nr.1, Bucuresti
+            <p>
+              Intrarea Naruja <span className="mx-2">Nr.1</span> Bucuresti
+            </p>
           </div>
         </div>
         <div className="w-full max-w-[570px] mx-auto md:mx-0">
