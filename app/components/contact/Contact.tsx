@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
         showBorder={false}
         className="text-center text-xl text-[#C8C8C8]"
       >
-        Let's talk
+        Let&apos;s talk
       </GradientText>
       <h1 className="text-center text-white text-4xl font-bold mb-4">
         Contact
