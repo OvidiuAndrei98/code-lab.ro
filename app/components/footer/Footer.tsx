@@ -7,10 +7,10 @@ import { Separator } from "@/components/ui/separator";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="text-white max-w-[1200px] mx-[auto] flex flex-col items-center py-[100px]">
-      <div className="flex justify-between w-full">
+    <footer className="text-white max-w-[1200px] mx-[auto] flex flex-col items-center py-[100px] px-4">
+      <div className="flex justify-between w-full flex-col items-center md:flex-row">
         <Image src={LogoWihte} alt="logo" width={100} />
-        <div className="space-x-5">
+        <div className="grid grid-cols-3 justify-center py-4 md:flex md:gap-4">
           <span>Services</span>
           <span>Methodology</span>
           <span>Benefits</span>
