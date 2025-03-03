@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import LogoWihte from "@/public/logo-white.svg";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
-import { Facebook, FacebookIcon, LucideFacebook } from "lucide-react";
+import { FacebookIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const Footer: React.FC = () => {
