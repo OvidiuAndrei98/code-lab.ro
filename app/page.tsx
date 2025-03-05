@@ -6,7 +6,6 @@ import HeroSection from "@/components/hero-section/HeroSection";
 import ServicesSection from "@/components/services-section/ServicesSection";
 import BenefitsSection from "./components/benefits/BenefitsSection";
 import PricesSection from "./components/prices-section/PricesSection";
-import Footer from "./components/footer/Footer";
 import Contact from "./components/contact/Contact";
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
       <BenefitsSection />
       <PricesSection />
       <Contact />
-      <Footer />
     </div>
   );
 }

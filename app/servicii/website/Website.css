@@ -1,0 +1,12 @@
+.landing-page-banner {
+  max-width: 1300px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+    url(../../../public/banner-website-service.jpeg);
+  object-fit: cover;
+  height: 40rem;
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+}

@@ -28,13 +28,15 @@ const PricesSection: React.FC = () => {
           <h3 className="text-xl">Landing page</h3>
           <span className="text-[#C8C8C8] text-sm">1 page</span>
           <Separator className="my-4" />
-          <span className="text-5xl font-bold">500€</span>
+          <span className="text-5xl font-bold">
+            <span className="font-extralight text-sm">from</span> 500€
+          </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
             href="https://calendly.com/contact-code-lab/discovery-call"
             target="_blank"
           >
-            Learn more
+            See more
           </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
@@ -57,15 +59,17 @@ const PricesSection: React.FC = () => {
           spotlightColor="rgba(114, 49, 236, 0.24)"
         >
           <h3 className="text-xl">Small website</h3>
-          <span className="text-[#C8C8C8] text-sm">2-4 pages</span>
+          <span className="text-[#C8C8C8] text-sm">2+ pages</span>
           <Separator className="my-4" />
-          <span className="text-5xl font-bold">750€</span>
+          <span className="text-5xl font-bold">
+            <span className="font-extralight text-sm">from</span> 750€
+          </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
             href="https://calendly.com/contact-code-lab/discovery-call"
             target="_blank"
           >
-            Learn more
+            See more
           </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
@@ -90,48 +94,15 @@ const PricesSection: React.FC = () => {
           <h3 className="text-xl">Online shop</h3>
           <span className="text-[#C8C8C8] text-sm">3+ pages</span>
           <Separator className="my-4" />
-          <span className="text-5xl font-bold">750€</span>
+          <span className="text-5xl font-bold">
+            <span className="font-extralight text-sm">from</span> 750€
+          </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
             href="https://calendly.com/contact-code-lab/discovery-call"
             target="_blank"
           >
-            Learn more
-          </Link>
-          <Separator className="my-4" />
-          <div className="flex space-x-2">
-            <CheckIcon />
-            <span className="font-extralight text-sm">Design in Figma</span>
-          </div>
-          <div className="flex space-x-2">
-            <CheckIcon />
-            <span className="font-extralight text-sm">Custom development</span>
-          </div>
-          <div className="flex space-x-2">
-            <CheckIcon />
-            <span className="font-extralight text-sm">
-              SEO optimization & maintenance
-            </span>
-          </div>
-          <div className="flex space-x-2">
-            <CheckIcon />
-            <span className="font-extralight text-sm">CMS integrations</span>
-          </div>
-        </SpotlightCard>
-        <SpotlightCard
-          className="custom-spotlight-card w-full max-w-[356px] "
-          spotlightColor="rgba(114, 49, 236, 0.24)"
-        >
-          <h3 className="text-xl">Complex website</h3>
-          <span className="text-[#C8C8C8] text-sm">4+ page</span>
-          <Separator className="my-4" />
-          <span className="text-5xl font-bold">1200€</span>
-          <Link
-            className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
-            href="https://calendly.com/contact-code-lab/discovery-call"
-            target="_blank"
-          >
-            Learn more
+            See more
           </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
@@ -160,13 +131,15 @@ const PricesSection: React.FC = () => {
           <h3 className="text-xl">Web application</h3>
           <span className="text-[#C8C8C8] text-sm">5+ pages</span>
           <Separator className="my-4" />
-          <span className="text-5xl font-bold">2000€</span>
+          <span className="text-5xl font-bold">
+            <span className="font-extralight text-sm">from</span> 2000€
+          </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
             href="https://calendly.com/contact-code-lab/discovery-call"
             target="_blank"
           >
-            Learn more
+            See more
           </Link>
           <Separator className="my-4" />
           <div className="flex space-x-2">
