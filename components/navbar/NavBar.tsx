@@ -45,7 +45,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const sections = document.querySelectorAll(".section");
-    const navLi = document.querySelectorAll(".navbar ul li");
+    const navLi = document.querySelectorAll("nav ul li");
 
     window.addEventListener("scroll", () => {
       let current = "";
@@ -61,9 +61,9 @@ const NavBar = () => {
       });
 
       navLi.forEach((li) => {
-        li.children[0].classList.remove("active");
-        if (li.children[0].classList.contains(current)) {
-          li.children[0].classList.add("active");
+        li.classList.remove("active");
+        if (li.classList.contains(current)) {
+          li.classList.add("active");
         }
       });
     });
@@ -141,7 +141,7 @@ const NavBar = () => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem
-              className="bg-transparent text-[#a0a0a0]"
+              className="services"
               onClick={() => redirect("/#services")}
             >
               <NavigationMenuTrigger>Services</NavigationMenuTrigger>
@@ -159,28 +159,28 @@ const NavBar = () => {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="methodology">
               <Link href="#" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Methodology
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="benefits">
               <Link href="/#benefits" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Benefits
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="prices">
               <Link href="/#prices" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Prices
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="faq">
               <Link href="/#" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   FAQ
@@ -213,13 +213,13 @@ const ListItem = forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#68686833] hover:text-white focus:bg-[#68686833] focus:text-white",
             className
           )}
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <p className="line-clamp-2 text-sm leading-snug text-[#a0a0a0]">
             {children}
           </p>
         </a>
