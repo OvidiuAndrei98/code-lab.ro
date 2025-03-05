@@ -33,8 +33,7 @@ const PricesSection: React.FC = () => {
           </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
-            href="https://calendly.com/contact-code-lab/discovery-call"
-            target="_blank"
+            href="/servicii/landing-page"
           >
             See more
           </Link>
@@ -66,8 +65,7 @@ const PricesSection: React.FC = () => {
           </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
-            href="https://calendly.com/contact-code-lab/discovery-call"
-            target="_blank"
+            href="/servicii/website"
           >
             See more
           </Link>
@@ -99,8 +97,7 @@ const PricesSection: React.FC = () => {
           </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
-            href="https://calendly.com/contact-code-lab/discovery-call"
-            target="_blank"
+            href="/servicii/magazin-online"
           >
             See more
           </Link>
@@ -136,8 +133,7 @@ const PricesSection: React.FC = () => {
           </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"
-            href="https://calendly.com/contact-code-lab/discovery-call"
-            target="_blank"
+            href="/"
           >
             See more
           </Link>
