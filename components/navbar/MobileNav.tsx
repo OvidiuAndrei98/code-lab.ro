@@ -2,27 +2,41 @@ import { useState } from "react";
 import "./MobileNav.css";
 import Image from "next/image";
 import LogoWihte from "@/public/logo-white.svg";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 const MobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [servicesSubMenuOpen, setServicesSubMenuOpen] = useState(false);
 
-  const handleMenuClick = () => {
+  const handleMenuClick = (routeName?: string) => {
+    if (routeName === "services") {
+      setServicesSubMenuOpen(!servicesSubMenuOpen);
+      return;
+    }
     const drawerInput = document.getElementById(
       "drawer-input"
     ) as HTMLInputElement;
     if (drawerInput) drawerInput.click();
+    setServicesSubMenuOpen(false);
   };
 
   return (
     <div className="header">
-      <div className="overlay-blocker w-[72%] sm:w-[84%]"></div>
-      <Image src={LogoWihte} alt="logo" width={100} />
+      <Image
+        src={LogoWihte}
+        alt="logo"
+        className="pointer-events-auto"
+        width={100}
+        onClick={() => redirect("/")}
+      />
       <input
         className="hidden"
         id="drawer-input"
         type="checkbox"
         defaultChecked={isMenuOpen}
         onClick={() => {
+          setServicesSubMenuOpen(false);
           setIsMenuOpen(!isMenuOpen);
         }}
       />
@@ -33,64 +47,80 @@ const MobileNav = () => {
         <span></span>
       </label>
       <nav
-        className={`nav-content backdrop-blur-xl ${
+        className={`nav-content backdrop-blur-xl  ${
           isMenuOpen ? "" : "disabled"
         }`}
       >
         <ul className="items">
-          <li
-            className="item text-xl text-[#a0a0a0] hover:text-white"
-            onClick={handleMenuClick}
-          >
-            <a href="#services">
+          <li className="item text-xl text-[#a0a0a0] hover:text-white">
+            <a onClick={() => handleMenuClick("services")}>
               <p>001</p>
               <p>Services</p>
             </a>
+            <ul
+              className={`px-8 py-4 transition-all ${
+                servicesSubMenuOpen ? "block" : "hidden"
+              }`}
+            >
+              <li className="item text-xl text-[#a0a0a0] hover:text-white">
+                <a href="/servicii/landing-page">Landing page</a>
+              </li>
+              <li className="item text-xl text-[#a0a0a0] hover:text-white">
+                <a href="/servicii/website">Website</a>
+              </li>
+              <li className="item text-xl text-[#a0a0a0] hover:text-white">
+                <a href="/servicii/magazin-online">Online shop</a>
+              </li>
+              <li className="item text-xl text-[#a0a0a0] hover:text-white">
+                <Link href="/">Web application</Link>
+              </li>
+            </ul>
           </li>
+
           <li
             className="item text-xl text-[#a0a0a0] hover:text-white"
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick()}
           >
-            <a href="#">
+            <Link href="/">
               <p>002</p>
               <p>Methodology</p>
-            </a>
+            </Link>
           </li>
           <li
             className="item text-xl text-[#a0a0a0] hover:text-white"
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick()}
           >
-            <a href="#benefits">
+            <Link href="/#benefits">
               <p>003</p>
               <p>Benefits</p>
-            </a>
+            </Link>
           </li>
           <li
             className="item text-xl text-[#a0a0a0] hover:text-white"
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick()}
           >
-            <a href="#prices">
+            <Link href="/#prices">
               <p>004</p>
               <p>Pricing</p>
-            </a>
+            </Link>
           </li>
           <li
             className="item text-xl text-[#a0a0a0] hover:text-white"
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick()}
           >
-            <a href="#">
+            <Link href="/">
               <p>005</p>
               <p>FAQ</p>
-            </a>
+            </Link>
           </li>
           <li
             className="item text-xl text-[#a0a0a0] hover:text-white"
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick()}
           >
-            <a href="#contact">
+            <Link href="/#contact">
               <p>006</p>
               <p>Contact</p>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

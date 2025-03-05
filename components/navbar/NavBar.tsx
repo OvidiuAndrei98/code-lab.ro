@@ -1,10 +1,44 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import ShinyText from "../shiny-text/ShinyText";
 import { Button } from "../ui/button";
 import "./NavBar.css";
 import LogoWihte from "@/public/logo-white.svg";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
+const components: { title: string; href: string; description: string }[] = [
+  {
+    title: "Landing Page",
+    href: "/servicii/landing-page",
+    description: "Description",
+  },
+  {
+    title: "Website",
+    href: "/servicii/website",
+    description: "Description",
+  },
+  {
+    title: "Online shop",
+    href: "/servicii/magazin-online",
+    description: "Description",
+  },
+  {
+    title: "Web application",
+    href: "/",
+    description: "Description",
+  },
+];
 
 const NavBar = () => {
   const [hrefUrlAnchor, setHrefUrlAnchor] = useState("");
@@ -46,17 +80,22 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 w-full h-[70px] mt-4 px-[24px] z-[99]">
       <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl items-center p-[18px] ">
-        <Image src={LogoWihte} alt="logo" width={100} />
-        <ul className="flex w-full text-[#d2d2d2] text-2xl justify-between md:space-x-6 md:justify-center">
+        <Image
+          src={LogoWihte}
+          alt="logo"
+          width={100}
+          onClick={() => redirect("/")}
+        />
+        {/* <ul className="flex w-full text-[#d2d2d2] text-2xl justify-between md:space-x-6 md:justify-center">
           <li className="flex-1 md:flex-none ">
-            <a
-              href="#services"
+            <Link
+              href="/#services"
               className="services flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base active"
             >
               <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
                 Services
               </span>
-            </a>
+            </Link>
           </li>
           <li className="flex-1 md:flex-none">
             <a
@@ -98,7 +137,58 @@ const NavBar = () => {
               </span>
             </a>
           </li>
-        </ul>
+        </ul> */}
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem
+              className="bg-transparent text-[#a0a0a0]"
+              onClick={() => redirect("/#services")}
+            >
+              <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                  {components.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="#" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Methodology
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/#benefits" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Benefits
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/#prices" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Prices
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/#" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  FAQ
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         <Button
           variant="ghost"
           className="navbar-button rounded-full font-light backdrop-blur-xl text-[#d2d2d2] border border-[#d2d2d2] hover:bg-[#d2d2d2] hover:text-black"
@@ -112,3 +202,29 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+const ListItem = forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
