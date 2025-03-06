@@ -5,9 +5,11 @@ import Link from "next/link";
 const ServicesPage: React.FC = () => {
   return (
     <div>
-      <div className="landing-page-banner relative">
-        <div className="absolute top-[40%] p-8 max-w-[70%] flex flex-col gap-4">
-          <h1 className="text-white font-semibold text-3xl">
+      <div
+        className={`landing-page-banner relative top-0 md:top-[100px] rounded-b-md md:rounded-md`}
+      >
+        <div className="absolute top-[9rem] p-4 flex flex-col items-center md:items-start gap-4 md:max-w-[70%] md:p-8">
+          <h1 className="text-white font-semibold text-2xl md:text-3xl text-center md:text-start">
             Crește-ți Vânzările Online cu un Magazin Profesional
           </h1>
           <span className="text-[#e8e8e8] font-light text-lg">

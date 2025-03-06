@@ -1,7 +1,7 @@
 .landing-page-banner {
   max-width: 1300px;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
-    url(../../../public/banner-website-service.jpeg);
+    url(../../../public/banner-website-service.jpg);
   object-fit: cover;
   height: 40rem;
   margin: 0 auto;

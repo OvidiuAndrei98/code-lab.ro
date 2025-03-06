@@ -29,7 +29,7 @@ const PricesSection: React.FC = () => {
           <span className="text-[#C8C8C8] text-sm">1 page</span>
           <Separator className="my-4" />
           <span className="text-5xl font-bold">
-            <span className="font-extralight text-sm">from</span> 500€
+            <span className="font-extralight text-sm">from</span> 400€
           </span>
           <Link
             className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 w-full inline-block text-center"

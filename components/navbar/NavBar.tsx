@@ -86,58 +86,6 @@ const NavBar = () => {
           width={100}
           onClick={() => redirect("/")}
         />
-        {/* <ul className="flex w-full text-[#d2d2d2] text-2xl justify-between md:space-x-6 md:justify-center">
-          <li className="flex-1 md:flex-none ">
-            <Link
-              href="/#services"
-              className="services flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base active"
-            >
-              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
-                Services
-              </span>
-            </Link>
-          </li>
-          <li className="flex-1 md:flex-none">
-            <a
-              href="#projects"
-              className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
-            >
-              <span className="text-[12px] lg:text-[17px] text-[#a0a0a0] hover:text-white font-light ">
-                Methodology
-              </span>
-            </a>
-          </li>
-          <li className="flex-1 md:flex-none">
-            <a
-              href="#benefits"
-              className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
-            >
-              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
-                Benefits
-              </span>
-            </a>
-          </li>
-          <li className="flex-1 md:flex-none">
-            <a
-              href="#prices"
-              className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
-            >
-              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
-                Pricing
-              </span>
-            </a>
-          </li>
-          <li className="flex-1 md:flex-none">
-            <a
-              href="#projects"
-              className="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
-            >
-              <span className="text-[12px] text-[#a0a0a0] hover:text-white lg:text-[17px] font-light ">
-                FAQ
-              </span>
-            </a>
-          </li>
-        </ul> */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem
