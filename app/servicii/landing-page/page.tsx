@@ -3,7 +3,6 @@
 import React from "react";
 import "./LandingPage.css";
 import Link from "next/link";
-import useIsMobile from "@/lib/isMobileHook";
 import SpotlightCard from "@/components/spotlight-card/SpotlightCard";
 import { Separator } from "@radix-ui/react-separator";
 import { CheckIcon } from "lucide-react";
@@ -12,7 +11,6 @@ import Contact from "@/app/components/contact/Contact";
 import Methodology from "@/app/components/methodology/Methodology";
 
 const ServicesPage: React.FC = () => {
-  const isMobile = useIsMobile();
   return (
     <div>
       <div

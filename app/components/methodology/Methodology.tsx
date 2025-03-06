@@ -51,7 +51,7 @@ const Methodology: React.FC = () => {
             Design & Prototyping
           </h1>
           <h3 className="text-center text-white text-md font-extralight">
-            We create pixel-perfect prototypes that reflect your brand's
+            We create pixel-perfect prototypes that reflect your brand&apos;s
             identity. We focus on user experience and user interface design to
             ensure your website is intuitive and engaging.
           </h3>
