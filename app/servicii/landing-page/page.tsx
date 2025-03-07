@@ -12,7 +12,7 @@ import Methodology from "@/app/components/methodology/Methodology";
 
 const ServicesPage: React.FC = () => {
   return (
-    <div>
+    <div className="landing-page-service-container">
       <div
         className={`landing-page-banner relative m-[0_auto_80px_auto] md:m-[90px_auto_100px_auto] rounded-b-md md:rounded-md`}
       >

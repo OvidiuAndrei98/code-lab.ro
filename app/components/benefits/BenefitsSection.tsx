@@ -52,23 +52,23 @@ const BenefitsSection = () => {
         </h3>
       </div>
       <div className="relative pb-4 grid grid-cols-2 gap-5 md:flex h-[400px] max-w-[1200px] mx-[auto] mt-10 z-[1]">
-        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] items-center justify-center rounded-lg border border-[#8b8b8b]">
+        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] w-full max-w-[300px] items-center justify-center rounded-lg border border-[#8b8b8b]">
           <span className="text-4xl font-bold">100%</span>
           <span className="text-[#C8C8C8] text-center">
             Modern technologies
           </span>
         </div>
-        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] items-center justify-center rounded-lg border border-[#8b8b8b]">
+        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] w-full max-w-[300px] items-center justify-center rounded-lg border border-[#8b8b8b]">
           <span className="text-4xl font-bold">100%</span>
           <span className="text-[#C8C8C8] text-center">
             Commitment to your success
           </span>
         </div>
-        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] items-center justify-center rounded-lg border border-[#8b8b8b]">
+        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] w-full max-w-[300px] items-center justify-center rounded-lg border border-[#8b8b8b]">
           <span className="text-4xl font-bold">24/7</span>
           <span className="text-[#C8C8C8] text-center">Expert support</span>
         </div>
-        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] items-center justify-center rounded-lg border border-[#8b8b8b]">
+        <div className="benefit-card p-6 flex flex-col text-white gap-2 max-h-[200px] w-full max-w-[300px] items-center justify-center rounded-lg border border-[#8b8b8b]">
           <span className="text-4xl font-bold">5x</span>
           <span className="text-[#C8C8C8] text-center">
             Better conversion rates
