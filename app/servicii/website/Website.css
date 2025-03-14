@@ -10,3 +10,34 @@
   background-position: center;
   border-radius: 8px;
 }
+
+.landing-page-service-container {
+  .landing-page-banner {
+    max-width: 1200px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+      url(../../../public/banner-landing-page-service.jpg);
+    object-fit: cover;
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .benefit-card {
+    color: white;
+    background-color: #1d1d1d;
+    border-radius: 1.5rem;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 1.2rem;
+    max-width: 350px;
+    min-height: 300px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    span {
+      font-size: 16px;
+      line-height: 16px;
+      color: #7c7c7c;
+    }
+  }
+}

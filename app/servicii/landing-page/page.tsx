@@ -9,38 +9,29 @@ import { CheckIcon } from "lucide-react";
 import { DashboardIcon } from "@radix-ui/react-icons";
 import Contact from "@/app/components/contact/Contact";
 import Methodology from "@/app/components/methodology/Methodology";
+import Aurora from "@/components/aurora/Aurora";
 
 const ServicesPage: React.FC = () => {
   return (
     <div className="landing-page-service-container">
-      <div
-        className={`landing-page-banner relative m-[0_auto_80px_auto] md:m-[90px_auto_100px_auto] rounded-b-md md:rounded-md`}
-      >
-        <div className="absolute top-[9rem] p-4 flex flex-col items-center md:items-start gap-4 md:max-w-[70%] md:p-8">
-          <h1 className="text-white font-semibold text-2xl md:text-3xl text-center md:text-start">
-            Maximize Your Campaigns with Targeted Landing Pages
-          </h1>
-          <span className="text-[#e8e8e8] font-light text-md md:text-xl text-center md:text-start">
-            Drive conversions and boost your sales with our expert landing page
-            creation services. We design custom landing pages that are not only
-            visually appealing but also strategically optimized to turn visitors
-            into loyal customers. Contact us today and start maximizing your
-            online potential.
-          </span>
-          <Link
-            className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 max-w-[300px] text-white"
-            href="https://calendly.com/contact-code-lab/discovery-call"
-            target="_blank"
-          >
-            Descoperă pachetele
-          </Link>
-        </div>
-      </div>
+      <Aurora
+        colorStops={["#4E26E2", "#000000", "#953DF5"]}
+        blend={0.8}
+        amplitude={0.5}
+        speed={1.2}
+      />
       <div className="mb-[80px]">
-        <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
-          <h1 className="text-center text-center text-2xl font-bold">
-            BENEFITS
+        <div className="flex flex-col justify-center items-center  mb-[80px]">
+          <h1 className="text-white text-[23px] ">Website de prezentare</h1>
+          <h1 className="text-white text-[50px] pb-2">
+            Convinge vizitatorii să cumpere!
           </h1>
+          <h1 className="text-white text-[23px] ">
+            Alege pachetul perfect pentru un landing page de succes!
+          </h1>
+        </div>
+        <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
+          <h1 className="text-center  text-2xl font-bold">BENEFITS</h1>
           <span className="text-center text-lg font-extralight">
             Capture More Leads, Grow Your Business.
           </span>
@@ -88,7 +79,7 @@ const ServicesPage: React.FC = () => {
       </div>
       <div>
         <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
-          <h1 className="text-center text-center text-2xl font-bold">PRICES</h1>
+          <h1 className="text-center text-2xl font-bold">PRICES</h1>
           <span className="text-center text-lg font-extralight">
             Choose the perfect package for your bussines.
           </span>
