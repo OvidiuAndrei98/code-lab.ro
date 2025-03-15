@@ -18,7 +18,7 @@ const Methodology: React.FC = () => {
         </h3>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3  lg:grid-rows-[200px_200px_300px] gap-4 text-white ">
-        <div className="col-span-1 row-span-1 row-start-2 lg:row-start-1 text-center max-w-[700px] mx-[auto]">
+        <div className="col-span-1 row-span-1 row-start-2 xl:row-start-1 text-center max-w-[700px] mx-[auto]">
           <div className="p-8 bg-[#7231EC] inline-flex items-center justify-center rounded-full w-[50px] h-[50px] mb-4">
             1
           </div>
@@ -31,19 +31,19 @@ const Methodology: React.FC = () => {
             unique needs of your project.
           </h3>
         </div>
-        <div className="col-span-1 row-span-1 col-start-1 row-start-4 lg:col-start-3 lg:row-start-1 text-center max-w-[700px] mx-[auto]">
+        <div className="col-span-1 row-span-1 col-start-1 row-start-4 xl:col-start-3 xl:row-start-1 text-center max-w-[700px] mx-[auto]">
           <div className="p-8 bg-[#7231EC] inline-flex items-center justify-center rounded-full w-[50px] h-[50px] mb-4">
             3
           </div>
           <h1 className="text-center text-white text-4xl font-bold">
-            Develpment
+            Implementation
           </h1>
           <h3 className="text-center text-white text-md font-extralight">
             We transform the prototype into a fully responsive, SEO-friendly
             website. We integrate essential features and functionalities.
           </h3>
         </div>
-        <div className="col-span-1 row-span-1 row-start-3 lg:col-start-1 lg:row-start-3 text-center max-w-[700px] mx-[auto]">
+        <div className="col-span-1 row-span-1 row-start-3 xl:col-start-1 xl:row-start-3 text-center max-w-[700px] mx-[auto]">
           <div className="p-8 bg-[#7231EC] inline-flex items-center justify-center rounded-full w-[50px] h-[50px] mb-4">
             2
           </div>
@@ -56,7 +56,7 @@ const Methodology: React.FC = () => {
             ensure your website is intuitive and engaging.
           </h3>
         </div>
-        <div className="col-span-1 row-span-1 col-start-1 row-start-5 lg:col-start-3 lg:row-start-3 text-center max-w-[700px] mx-[auto]">
+        <div className="col-span-1 row-span-1 col-start-1 row-start-5 xl:col-start-3 xl:row-start-3 text-center max-w-[700px] mx-[auto]">
           <div className="p-8 bg-[#7231EC] inline-flex items-center justify-center rounded-full w-[50px] h-[50px] mb-4">
             4
           </div>
@@ -70,7 +70,7 @@ const Methodology: React.FC = () => {
             properly.
           </h3>
         </div>
-        <div className="col-span-1 row-span-1 col-start-1 row-start-1 lg:col-start-2 lg:row-start-2 text-center max-w-[700px] mx-[auto]">
+        <div className="col-span-1 row-span-1 col-start-1 row-start-1 xl:col-start-2 xl:row-start-2 text-center max-w-[700px] mx-[auto]">
           <TiltedCard
             imageSrc={MethodologyImage.src}
             scaleOnHover={1.05}
