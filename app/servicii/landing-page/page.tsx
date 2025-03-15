@@ -9,6 +9,7 @@ import { CheckIcon } from "lucide-react";
 import { DashboardIcon } from "@radix-ui/react-icons";
 import Contact from "@/app/components/contact/Contact";
 import Methodology from "@/app/components/methodology/Methodology";
+import Aurora from "@/components/aurora/Aurora";
 
 const ServicesPage: React.FC = () => {
   return (
@@ -37,10 +38,17 @@ const ServicesPage: React.FC = () => {
         </div>
       </div>
       <div className="mb-[80px]">
-        <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
-          <h1 className="text-center text-center text-2xl font-bold">
-            BENEFITS
+        <div className="flex flex-col justify-center items-center  mb-[80px]">
+          <h1 className="text-white text-[23px] ">Website de prezentare</h1>
+          <h1 className="text-white text-[50px] pb-2">
+            Convinge vizitatorii să cumpere!
           </h1>
+          <h1 className="text-white text-[23px] ">
+            Alege pachetul perfect pentru un landing page de succes!
+          </h1>
+        </div>
+        <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
+          <h1 className="text-center  text-2xl font-bold">BENEFITS</h1>
           <span className="text-center text-lg font-extralight">
             Capture More Leads, Grow Your Business.
           </span>
@@ -88,7 +96,7 @@ const ServicesPage: React.FC = () => {
       </div>
       <div>
         <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
-          <h1 className="text-center text-center text-2xl font-bold">PRICES</h1>
+          <h1 className="text-center text-2xl font-bold">PRICES</h1>
           <span className="text-center text-lg font-extralight">
             Choose the perfect package for your bussines.
           </span>
