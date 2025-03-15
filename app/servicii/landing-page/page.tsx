@@ -9,7 +9,6 @@ import { CheckIcon } from "lucide-react";
 import { DashboardIcon } from "@radix-ui/react-icons";
 import Contact from "@/app/components/contact/Contact";
 import Methodology from "@/app/components/methodology/Methodology";
-import Aurora from "@/components/aurora/Aurora";
 
 const ServicesPage: React.FC = () => {
   return (
