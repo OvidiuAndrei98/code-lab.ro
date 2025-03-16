@@ -8,7 +8,7 @@ const PricesSection: React.FC = () => {
   return (
     <div
       id="prices"
-      className="section w-full flex flex-col justify-center pt-[55px] md:pt-[10px] relative px-4 max-w-[1200px] mx-[auto]"
+      className="section w-full flex flex-col justify-center pt-[85px] md:pt-[10px] relative px-4 max-w-[1200px] mx-[auto]"
     >
       <div className="max-w-[1200px] mx-[auto] w-full flex flex-col justify-center gap-4 max-w-[700px]">
         <span className="text-center text-xl text-[#C8C8C8] ">PRICES</span>

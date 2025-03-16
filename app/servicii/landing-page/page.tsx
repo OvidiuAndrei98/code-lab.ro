@@ -37,15 +37,6 @@ const ServicesPage: React.FC = () => {
         </div>
       </div>
       <div className="mb-[80px]">
-        <div className="flex flex-col justify-center items-center  mb-[80px]">
-          <h1 className="text-white text-[23px] ">Website de prezentare</h1>
-          <h1 className="text-white text-[50px] pb-2">
-            Convinge vizitatorii să cumpere!
-          </h1>
-          <h1 className="text-white text-[23px] ">
-            Alege pachetul perfect pentru un landing page de succes!
-          </h1>
-        </div>
         <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
           <h1 className="text-center  text-2xl font-bold">BENEFITS</h1>
           <span className="text-center text-lg font-extralight">
@@ -53,7 +44,7 @@ const ServicesPage: React.FC = () => {
           </span>
         </div>
         <div className="flex flex-col items-center md:flex-row md:flex-wrap md:justify-center gap-4 max-w-[1200px] mx-[auto] xl:flex-nowrap">
-          <div className="benefit-card xl:!max-w-[290px]">
+          <div className="srvice-benefit-card xl:!max-w-[290px]">
             <div className="p-8 bg-[#641F96] inline-block rounded-full max-w-[80px] mb-4">
               <DashboardIcon />
             </div>
@@ -64,7 +55,7 @@ const ServicesPage: React.FC = () => {
               action.
             </span>
           </div>
-          <div className="benefit-card xl:!max-w-[290px]">
+          <div className="srvice-benefit-card xl:!max-w-[290px]">
             <div className="p-8 bg-[#167D90] inline-block rounded-full max-w-[80px] mb-4">
               <DashboardIcon />
             </div>
@@ -73,7 +64,7 @@ const ServicesPage: React.FC = () => {
               Landing pages are designed with a single, clear objective
             </span>
           </div>
-          <div className="benefit-card xl:!max-w-[290px]">
+          <div className="srvice-benefit-card xl:!max-w-[290px]">
             <div className="p-8 bg-[#755E85] inline-block rounded-full max-w-[80px] mb-4">
               <DashboardIcon />
             </div>
@@ -82,7 +73,7 @@ const ServicesPage: React.FC = () => {
               Landing pages are designed with a single, clear objective
             </span>
           </div>
-          <div className="benefit-card xl:!max-w-[290px]">
+          <div className="srvice-benefit-card xl:!max-w-[290px]">
             <div className="p-8 bg-[#4B836A] inline-block rounded-full max-w-[80px] mb-4">
               <DashboardIcon />
             </div>

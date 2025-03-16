@@ -5,6 +5,7 @@
 
 @theme {
   --breakpoint-xs: 35rem;
+  --breakpoint-lg: 64rem;
   --color-primary: red;
 }
 

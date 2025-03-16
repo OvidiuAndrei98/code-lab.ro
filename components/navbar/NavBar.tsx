@@ -85,6 +85,7 @@ const NavBar = () => {
           alt="logo"
           width={100}
           onClick={() => redirect("/")}
+          className="cursor-pointer"
         />
         <NavigationMenu>
           <NavigationMenuList>

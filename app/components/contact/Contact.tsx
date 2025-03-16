@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
                     <FormLabel className="text-[#A4A4A4]">Name</FormLabel>
                     <FormControl>
                       <Input
-                        className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] border-transparent focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
+                        className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
                         placeholder="e.g. John Doe"
                         {...field}
                       />
@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
                     <FormControl>
                       <Textarea
                         className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
-                        placeholder="e.g. I'd like to discuss a websiter for my company."
+                        placeholder="e.g. I'd like to discuss a website for my company."
                         {...field}
                       />
                     </FormControl>
