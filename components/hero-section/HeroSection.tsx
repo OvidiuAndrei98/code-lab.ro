@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className="h-[720px] lg:h-[90dvh] w-full relative">
+    <div className="h-[720px] lg:h-[820px] w-full relative">
       <Aurora
         colorStops={["#4E26E2", "#000000", "#953DF5"]}
         blend={0.8}

@@ -79,7 +79,7 @@ const NavBar = () => {
 
   return (
     <nav className="fixed top-0 w-full h-[70px] mt-4 px-[24px] z-[99]">
-      <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl items-center p-[18px] ">
+      <div className="navbar rounded-full h-full container mx-auto flex justify-between backdrop-blur-xl items-center p-[18px] max-w-[1200px]">
         <Image
           src={LogoWihte}
           alt="logo"
