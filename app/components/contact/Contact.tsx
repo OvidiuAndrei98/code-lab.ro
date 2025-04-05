@@ -112,14 +112,14 @@ const Contact: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-8 flex flex-col">
             <input
               type="text"
-              placeholder="Your Name"
+              placeholder="e.g. John Doe"
               value={name}
               onChange={(e) => SetName(e.target.value)}
               className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
             />
             <input
               type="email"
-              placeholder="Your Email"
+              placeholder="e.g. example@gmail.com"
               value={email}
               onChange={(e) => SetEmail(e.target.value)}
               className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
             <textarea
               name="message"
               value={message}
-              placeholder="Message"
+              placeholder="e.g. I'd like to discuss a website for my company."
               onChange={(e) => SetMessage(e.target.value)}
               className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
             />
