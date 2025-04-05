@@ -19,7 +19,10 @@ const Footer: React.FC = () => {
           <span>Contact</span>
         </div>
         <div className="flex items-center">
-          <InstagramLogoIcon width={24} height={24} />
+          <a href="https://www.instagram.com/codelab.ro/">
+            <InstagramLogoIcon width={24} height={24} />
+          </a>
+
           <FacebookIcon width={20} height={20} />
         </div>
       </div>
