@@ -1,73 +1,57 @@
 "use client";
 
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { useForm } from "react-hook-form";
-// import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-// import { Button } from "@/components/ui/button";
-// import {
-//   Form,
-//   FormControl,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-// } from "@/components/ui/form";
-// import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 import GradientText from "@/components/animated-text/AnimatedText";
 import { MailIcon, MapPin, PhoneIcon } from "lucide-react";
-import React, { useState } from "react";
-// import { Textarea } from "@/components/ui/textarea";
+import React from "react";
+import { Textarea } from "@/components/ui/textarea";
 
 import emailjs from "emailjs-com";
 
-// const formSchema = z.object({
-//   name: z.string().min(1, {
-//     message: "Name is required.",
-//   }),
-//   email: z.string().email({
-//     message: "Email is not valid.",
-//   }),
-//   message: z.string().min(1, {
-//     message: "Message is required.",
-//   }),
-// });
+const formSchema = z.object({
+  from_name: z.string().min(1, {
+    message: "Name is required.",
+  }),
+  from_email: z.string().email({
+    message: "Email is not valid.",
+  }),
+  message: z.string().min(1, {
+    message: "Message is required.",
+  }),
+});
 
 const Contact: React.FC = () => {
-  const [name, SetName] = useState("");
-  const [email, SetEmail] = useState("");
-  const [message, SetMessage] = useState("");
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      from_name: "",
+      from_email: "",
+      message: "",
+    },
+  });
 
-  // const form = useForm<z.infer<typeof formSchema>>({
-  //   resolver: zodResolver(formSchema),
-  //   defaultValues: {
-  //     name: "",
-  //     email: "",
-  //     message: "",
-  //   },
-  // });
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
+  function onSubmit(value: z.infer<typeof formSchema>) {
     const serviceID = "service_6ds37pm";
     const templateID = "template_008eqjl";
     const publicKey = "U8_xSVyIUY1ysvSFh";
-
-    const templateParams = {
-      from_name: name,
-      from_email: email,
-      to_name: "CodeLab",
-      message: message,
-    };
-
-    emailjs.send(serviceID, templateID, templateParams, publicKey).then(
+    emailjs.send(serviceID, templateID, value, publicKey).then(
       (response) => {
         console.log("trimis cu succes", response);
-        SetEmail("");
-        SetName("");
-        SetMessage("");
+        form.reset();
       },
       (error) => {
         console.log(error.text);
@@ -109,43 +93,14 @@ const Contact: React.FC = () => {
           </div>
         </div>
         <div className="w-full max-w-[570px] mx-auto md:mx-0">
-          <form onSubmit={handleSubmit} className="space-y-8 flex flex-col">
-            <input
-              type="text"
-              placeholder="e.g. John Doe"
-              value={name}
-              onChange={(e) => SetName(e.target.value)}
-              className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
-            />
-            <input
-              type="email"
-              placeholder="e.g. example@gmail.com"
-              value={email}
-              onChange={(e) => SetEmail(e.target.value)}
-              className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
-            />
-            <textarea
-              name="message"
-              value={message}
-              placeholder="e.g. I'd like to discuss a website for my company."
-              onChange={(e) => SetMessage(e.target.value)}
-              className="text-white bg-[#1414149c] py-6 px-4 rounded-lg border-2 border-[#f3f3f310] focus:border-2 focus:border-[#a476ff] placeholder:text-[#7D838B]"
-            />
-            <button
-              type="submit"
-              className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4 max-w-[200px] mx-auto md:mx-0"
-            >
-              Submit
-            </button>
-          </form>
-          {/* <Form {...form}>
+          <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-8 flex flex-col"
             >
               <FormField
                 control={form.control}
-                name="name"
+                name="from_name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-[#A4A4A4]">Name</FormLabel>
@@ -162,7 +117,7 @@ const Contact: React.FC = () => {
               />
               <FormField
                 control={form.control}
-                name="email"
+                name="from_email"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-[#A4A4A4]">Email</FormLabel>
@@ -201,7 +156,7 @@ const Contact: React.FC = () => {
                 Submit
               </Button>
             </form>
-          </Form> */}
+          </Form>
         </div>
       </div>
     </div>
