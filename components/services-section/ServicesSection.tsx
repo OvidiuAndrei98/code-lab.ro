@@ -12,7 +12,7 @@ const ServicesSection = () => {
     <div id="services" className="pt-[0px] md:pt-[100px] section">
       <div className="text-white flex flex-col justify-center items-center gap-4 p-4 max-w-[700px] mx-[auto]">
         <span className="text-center text-xl text-[#C8C8C8]">SERVICES</span>
-        <span className="text-center text-center text-4xl font-bold">
+        <span className="text-center  text-4xl font-bold">
           Crafting Stunning Websites That Drive Results
         </span>
         <span className="text-center text-lg font-extralight">
@@ -38,19 +38,19 @@ const ServicesSection = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2" className="border-none">
-            <AccordionTrigger className="bg-[#121212] bg-[#121212] rounded-[12px_12px_0_0] p-4 md:p-8">
+            <AccordionTrigger className="bg-[#121212]  rounded-[12px_12px_0_0] p-4 md:p-8">
               Custom Design
             </AccordionTrigger>
-            <AccordionContent className="bg-[#121212] bg-[#121212] rounded-[0_0_12px_12px] p-4 md:p-8">
+            <AccordionContent className="bg-[#121212]  rounded-[0_0_12px_12px] p-4 md:p-8">
               We create custom designs that are unique to your brand. Our
               designs are modern, clean, and user-friendly.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="border-none">
-            <AccordionTrigger className="bg-[#121212] bg-[#121212] rounded-[12px_12px_0_0] p-4 md:p-8">
+            <AccordionTrigger className="bg-[#121212]  rounded-[12px_12px_0_0] p-4 md:p-8">
               SEO Optimization
             </AccordionTrigger>
-            <AccordionContent className="bg-[#121212] bg-[#121212] rounded-[0_0_12px_12px] p-4 md:p-8">
+            <AccordionContent className="bg-[#121212]  rounded-[0_0_12px_12px] p-4 md:p-8">
               We optimize your website for search engines to ensure you rank
               higher in search results. This helps drive more traffic to your
               website.

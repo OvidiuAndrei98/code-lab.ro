@@ -3,6 +3,8 @@ import { Separator } from "@/components/ui/separator";
 import { CheckIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import Texture from "../../../public/textura-card.svg";
 
 const PricesSection: React.FC = () => {
   return (
@@ -10,7 +12,7 @@ const PricesSection: React.FC = () => {
       id="prices"
       className="section w-full flex flex-col justify-center pt-[90px] md:pt-[90px] relative px-4 max-w-[1200px] mx-[auto]"
     >
-      <div className="max-w-[1200px] mx-[auto] w-full flex flex-col justify-center gap-4 max-w-[700px]">
+      <div className="mx-[auto] w-full flex flex-col justify-center gap-4 max-w-[700px]">
         <span className="text-center text-xl text-[#C8C8C8] ">PRICES</span>
         <h1 className="text-center text-white text-4xl font-bold">
           Pricing plans
@@ -25,6 +27,11 @@ const PricesSection: React.FC = () => {
           className="custom-spotlight-card flex flex-col w-full max-w-[356px] "
           spotlightColor="rgba(114, 49, 236, 0.24)"
         >
+          <Image
+            className="w-full h-full object-cover absolute top-0 left-0 opacity-5"
+            src={Texture}
+            alt=""
+          />
           <h3 className="text-xl">Landing page</h3>
           <span className="text-[#C8C8C8] text-sm">1 page</span>
           <Separator className="my-4" />
