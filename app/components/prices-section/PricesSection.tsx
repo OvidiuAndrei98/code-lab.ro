@@ -22,7 +22,7 @@ const PricesSection: React.FC = () => {
           packages
         </h3>
       </div>
-      <div className="flex justify-center mt-6 text-white flex-wrap gap-5">
+      <div className="flex justify-center mt-6 text-white flex-wrap gap-5 select-none">
         <SpotlightCard
           className="custom-spotlight-card flex flex-col w-full max-w-[356px] "
           spotlightColor="rgba(114, 49, 236, 0.24)"
