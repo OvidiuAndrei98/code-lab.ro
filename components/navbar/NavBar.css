@@ -7,7 +7,7 @@
   );
   .active a,
   .active button {
-    color: white !important;
+    color: #fff !important;
   }
 }
 
