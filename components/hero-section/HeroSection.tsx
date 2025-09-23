@@ -3,10 +3,20 @@ import Aurora from "../aurora/Aurora";
 import RotatingText from "../rotating-text/RotatingText";
 import AnimatedContent from "@/components/animated-content/AnimatedContent";
 import Link from "next/link";
+import Texture from "../../public/texture.svg";
+import Image from "next/image";
+import { Button } from "../ui/button";
+import ShinyText from "../shiny-text/ShinyText";
 
 const HeroSection = () => {
   return (
     <div className="h-[720px] lg:h-[820px] w-full relative">
+      <Image
+        src={Texture}
+        className=" opacity-5 absolute select-none
+        top-0 left-0 w-full h-full object-cover "
+        alt="Background Texture"
+      />
       <Aurora
         colorStops={["#4E26E2", "#000000", "#953DF5"]}
         blend={0.8}
@@ -53,12 +63,41 @@ const HeroSection = () => {
           to life!
         </p>
 
-        <Link
+        {/* <Link
           className="bg-[#7231EC] hover:bg-[#5d16e0] text-md md:text-xl p-4 md:p-5 rounded-[8px] mt-8 md:mt-4"
           href="https://calendly.com/contact-code-lab/discovery-call"
           target="_blank"
         >
           Schedule a 30 min call
+        </Link> */}
+        <Link
+          href="https://calendly.com/contact-code-lab/discovery-call"
+          target="_blank"
+        >
+          <Button
+            variant="ghost"
+            className="p-6 navbar-button rounded-full font-light backdrop-blur-sm text-[#d2d2d2] border border-[#d2d2d29d] hover:bg-[#d2d2d2] hover:text-black"
+          >
+            <ShinyText
+              text="Schedule a 30 min call"
+              disabled={false}
+              speed={3}
+            />
+          </Button>
+          {/* <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+            {" "}
+            <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#a45efb_100%)]" />
+              <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full  bg-gray-950 text-xs font-medium backdrop-blur-3xl">
+                <a className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/5 via-[#7e4dd8] text-white border-input border-[1px] border-[#27272A] hover:bg-gradient-to-tr  hover:to-transparent hover:from-zinc-300/10 hover:via-purple-400/30 transition-all sm:w-auto py-4 px-10">
+                  Schedule a 30 min call
+                </a>
+              </div>
+            </span>
+          </div>
+          <button className="px-7 py-3 rounded-full font-medium bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-1 text-sm font-sfpro">
+            Schedule a 30 min call
+          </button> */}
         </Link>
       </AnimatedContent>
     </div>

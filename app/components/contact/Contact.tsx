@@ -20,11 +20,13 @@ import { MailIcon, MapPin, PhoneIcon } from "lucide-react";
 import React from "react";
 import { Textarea } from "@/components/ui/textarea";
 
+import emailjs from "emailjs-com";
+
 const formSchema = z.object({
-  name: z.string().min(1, {
+  from_name: z.string().min(1, {
     message: "Name is required.",
   }),
-  email: z.string().email({
+  from_email: z.string().email({
     message: "Email is not valid.",
   }),
   message: z.string().min(1, {
@@ -36,14 +38,25 @@ const Contact: React.FC = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
+      from_name: "",
+      from_email: "",
       message: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  function onSubmit(value: z.infer<typeof formSchema>) {
+    const serviceID = "service_6ds37pm";
+    const templateID = "template_008eqjl";
+    const publicKey = "U8_xSVyIUY1ysvSFh";
+    emailjs.send(serviceID, templateID, value, publicKey).then(
+      (response) => {
+        console.log("trimis cu succes", response);
+        form.reset();
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
   }
 
   return (
@@ -87,7 +100,7 @@ const Contact: React.FC = () => {
             >
               <FormField
                 control={form.control}
-                name="name"
+                name="from_name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-[#A4A4A4]">Name</FormLabel>
@@ -104,7 +117,7 @@ const Contact: React.FC = () => {
               />
               <FormField
                 control={form.control}
-                name="email"
+                name="from_email"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-[#A4A4A4]">Email</FormLabel>
