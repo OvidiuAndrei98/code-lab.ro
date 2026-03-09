@@ -8,7 +8,7 @@ import Methodology from "./components/methodology/Methodology";
 
 export default function Home() {
   return (
-    <div className="w-full p-0 overflow-hidden  bg-black">
+    <div className="w-full p-0 overflow-hidden bg-black">
       <HeroSection />
       <AnimatedSlider />
       <ServicesSection />
