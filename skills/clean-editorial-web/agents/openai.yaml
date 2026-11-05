@@ -1,0 +1,6 @@
+interface:
+  display_name: "Clean editorial web"
+  short_description: "Personal design rules for clean editorial websites"
+  default_prompt: "Use $clean-editorial-web to build a clean editorial website with expressive typography, meaningful imagery and restrained smooth motion."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,216 @@
+.gallery {
+  --gallery-top: 86px;
+  --gallery-band-height: 110px;
+  --gallery-panel-width: 100%;
+  padding-block: 16px 38px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.track {
+  position: relative;
+}
+.scene {
+  width: 100%;
+}
+.projects {
+  display: grid;
+  gap: clamp(42px, 5vw, 80px);
+  width: var(--gallery-panel-width);
+  max-width: 100%;
+  margin-inline: auto;
+}
+.project {
+  --panel-background: var(--ink);
+  --panel-foreground: var(--paper);
+  min-width: 0;
+  position: relative;
+  isolation: isolate;
+  color: var(--panel-foreground);
+  background: var(--panel-background);
+  border-radius: 6px 6px 0 0;
+  scroll-margin-top: 100px;
+}
+.project[data-gallery-tone="light"] {
+  --panel-background: var(--paper);
+  --panel-foreground: var(--ink);
+}
+.band {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(220px, 0.85fr) 190px;
+  align-items: center;
+  column-gap: clamp(24px, 3vw, 56px);
+  min-height: 110px;
+  padding: 18px 24px;
+  color: inherit;
+  background: var(--panel-background);
+  border-radius: 6px 6px 0 0;
+}
+.identity {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  gap: 18px;
+}
+.identity h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(56px, 5vw, 76px);
+  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.facts {
+  min-width: 0;
+}
+.category {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 15px;
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.status span {
+  white-space: nowrap;
+}
+.destination {
+  display: inline-flex;
+  justify-self: end;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.destination svg {
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
+}
+.destination:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+  border-radius: 1px;
+}
+.layer {
+  width: 100%;
+  overflow: hidden;
+}
+.layer :global(.project-media) {
+  width: 100%;
+  border-radius: 0;
+}
+
+/* The crop is fixed, not animated. Band and media travel together on the article. */
+.gallery[data-gallery-layout="wide"] {
+  --gallery-panel-width: min(100%, calc((100svh - 220px) * 16 / 9));
+}
+.gallery[data-gallery-layout="wide"] .band {
+  min-height: var(--gallery-band-height);
+}
+.gallery[data-gallery-layout="wide"] .layer {
+  aspect-ratio: 16 / 9;
+}
+.gallery[data-enhanced="true"] .track {
+  height: var(--gallery-track-height);
+}
+.gallery[data-enhanced="true"] .scene {
+  position: sticky;
+  top: var(--gallery-top);
+  height: var(--gallery-panel-height);
+}
+.gallery[data-enhanced="true"] .projects {
+  gap: 0;
+}
+.gallery[data-enhanced="true"] .project {
+  grid-area: 1 / 1;
+}
+.gallery[data-enhanced="true"] .project + .project {
+  box-shadow: 0 -9px 17px -17px rgb(0 0 0 / 0.55);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .destination:hover span {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+}
+@media (max-width: 1100px) {
+  .band {
+    column-gap: 20px;
+    padding-inline: 20px;
+    grid-template-columns: minmax(180px, 1fr) minmax(210px, 1fr) 180px;
+  }
+  .identity {
+    gap: 13px;
+  }
+  .destination {
+    gap: 9px;
+  }
+}
+@media (max-width: 760px) {
+  .gallery {
+    padding-block: 12px 26px;
+  }
+  .projects {
+    gap: 42px;
+  }
+  .band {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 18px 16px;
+    padding: 22px 18px 16px;
+  }
+  .identity {
+    grid-column: 1 / -1;
+    gap: 15px;
+  }
+  .identity h2 {
+    font-size: clamp(58px, 15vw, 76px);
+  }
+  .category {
+    font-size: 15px;
+  }
+  .status {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+  }
+  .status span {
+    display: block;
+    margin-top: 3px;
+  }
+  .destination {
+    align-self: end;
+    font-size: 14px;
+    white-space: normal;
+    gap: 9px;
+    min-height: 44px;
+  }
+  .destination span {
+    max-width: 12ch;
+  }
+}
+@media (max-width: 359px) {
+  .band {
+    grid-template-columns: 1fr;
+  }
+  .identity {
+    grid-column: auto;
+  }
+  .destination {
+    justify-self: start;
+  }
+  .destination span {
+    max-width: none;
+  }
+}

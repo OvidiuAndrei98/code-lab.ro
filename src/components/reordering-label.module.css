@@ -1,0 +1,31 @@
+.label {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+}
+
+.labelText {
+  display: block;
+}
+
+.letters {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.character {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: block;
+}
+
+.label[data-reordering] .labelText {
+  opacity: 0;
+}
+
+.label[data-reordering] .letters {
+  opacity: 1;
+}

@@ -1,0 +1,274 @@
+﻿.page {
+  --service-columns: minmax(0, 1.05fr) minmax(0, 0.8fr) minmax(160px, 0.45fr);
+  padding-top: 28px;
+}
+.label {
+  display: block;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+.introduction {
+  padding-bottom: 36px;
+}
+.introductionGrid {
+  display: grid;
+  grid-template-columns: var(--service-columns);
+  gap: 5vw;
+  align-items: end;
+  margin-top: 22px;
+}
+.introduction h1 {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 5.2vw, 80px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+.introduction p {
+  grid-column: 2 / -1;
+  max-width: 470px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+  padding-bottom: 3px;
+}
+.entries {
+  padding-bottom: 55px;
+}
+.entry {
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+.entry:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.entryLink {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--service-columns);
+  column-gap: 5vw;
+  align-items: center;
+  min-height: 210px;
+  padding-block: 33px;
+}
+.entryLink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease;
+}
+.entry h2 {
+  font-family: var(--font-display);
+  font-size: clamp(58px, 7.1vw, 112px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+.entryCopy p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 390px;
+  text-wrap: pretty;
+}
+.entryCopy > span {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 15px;
+  max-width: 390px;
+}
+.entryAction {
+  display: inline-flex;
+  justify-self: end;
+  align-items: center;
+  gap: 14px;
+  width: max-content;
+  max-width: 100%;
+  font-size: 0.8125rem;
+  min-height: 44px;
+  white-space: nowrap;
+}
+.entryAction svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 150ms var(--ease-out);
+}
+.entryLink:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 7px;
+}
+.entryLink:focus-visible::before {
+  opacity: 0.035;
+  transition: none;
+}
+.entryLink:focus-visible .entryAction {
+  color: var(--accent);
+}
+.contact {
+  display: grid;
+  grid-template-columns: var(--service-columns);
+  gap: 5vw;
+  align-items: end;
+  padding-block: 42px 48px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.contact .label {
+  color: #c6c8bf;
+}
+.contact h2 {
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  font-weight: 450;
+  margin-top: 25px;
+}
+.contactCopy {
+  grid-column: 2 / -1;
+}
+.contactCopy p {
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 420px;
+  color: #c6c8bf;
+}
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  min-height: 52px;
+  padding: 12px 0;
+  font-size: 0.875rem;
+  margin-top: 22px;
+}
+.contactLink svg {
+  width: 24px;
+  height: 24px;
+  color: var(--paper);
+  transition: transform 150ms var(--ease-out);
+}
+.contactLink:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 7px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .entryLink:hover::before {
+    opacity: 0.035;
+  }
+  .entryLink:hover .entryAction svg,
+  .contactLink:hover svg {
+    transform: translate(4px, -4px);
+  }
+  .contactLink:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+  }
+}
+@media (max-width: 1100px) {
+  .page {
+    --service-columns: minmax(0, 1.05fr) minmax(0, 1.25fr);
+  }
+  .entryLink {
+    align-items: start;
+    row-gap: 16px;
+    min-height: 210px;
+  }
+  .entry h2 {
+    grid-row: 1 / 3;
+    font-size: clamp(58px, 7.5vw, 88px);
+  }
+  .entryAction {
+    grid-column: 2;
+    justify-self: start;
+  }
+  .entryCopy > span {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 760px) {
+  .page {
+    padding-top: 25px;
+  }
+  .introduction {
+    padding-bottom: 28px;
+  }
+  .introductionGrid {
+    display: block;
+    margin-top: 20px;
+  }
+  .introduction h1 {
+    font-size: clamp(49px, 6.8vw, 72px);
+  }
+  .introduction p {
+    margin-top: 19px;
+    max-width: 430px;
+  }
+  .entries {
+    padding-bottom: 35px;
+  }
+  .entryLink {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    row-gap: 16px;
+    padding-block: 27px 22px;
+  }
+  .entry h2 {
+    grid-row: auto;
+    font-size: clamp(48px, 12.8vw, 78px);
+    line-height: 1.05;
+  }
+  .entryCopy p {
+    max-width: 470px;
+  }
+  .entryCopy > span {
+    margin-top: 11px;
+  }
+  .entryAction {
+    grid-column: 1;
+    margin-top: 2px;
+  }
+  .entryAction svg {
+    width: 25px;
+    height: 25px;
+  }
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding-block: 30px 32px;
+  }
+  .contact h2 {
+    font-size: clamp(34px, 8vw, 45px);
+    margin-top: 22px;
+  }
+  .contactCopy p {
+    max-width: 470px;
+  }
+  .contactCopy {
+    grid-column: 1;
+  }
+  .contactLink {
+    margin-top: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .entryLink::before,
+  .entryAction svg,
+  .contactLink svg {
+    transition: none;
+  }
+  .entryLink:hover .entryAction svg,
+  .contactLink:hover svg {
+    transform: none;
+  }
+}

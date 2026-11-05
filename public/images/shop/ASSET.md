@@ -1,0 +1,9 @@
+# Demonstrative product image
+
+Created for the CODELAB online-store service demonstration using the built-in image_gen tool. This is generated illustrative product photography, not an actual client product or delivered store. The interface labels the experience as a demonstration. No brand or client is claimed.
+
+Selected source: `sketchbook-source.png`; web asset: `sketchbook.webp`.
+
+## Prompt
+
+Use case: product-mockup. Asset type: original product photograph for an explicitly labelled interactive e-commerce demonstration on CODELAB, a Romanian web studio. Create a refined photographic still life of ONE premium unbranded sketch notebook, lying open on a warm light grey paper backdrop close to #eae8e1. True top-down overhead editorial studio photography, entirely flat lay, no 3D render style. The open book has warm ivory blank paper with delicate natural grain, a slim charcoal black linen cover visible around the paper edge, hand-bound precision, and a narrow burnt orange ribbon bookmark (#c63e24) extending naturally from the lower fold. Open spread slightly diagonal, rotated about -12 degrees, with beautiful believable page curvature at the spine and very restrained soft sunlight from upper left, a real subtle shadow to lower right. One notebook only. No hands, pencils, other props, mockup devices, text, branding or logos. Wide landscape 3:2 composition, notebook dominates the photograph at about 75 percent of width and 80 percent height, all book edges fully visible, generous clean breathing room around it. The paper and subtle linen detail should be tactile and sharp, realistic high-resolution product photography, designed to sit on a neutral minimalist website. No floating object, gradients, CGI, plastic highlights, ornamental shapes or stars. This is a demonstrative stationery product, not an existing client project. Deliver only the photograph, no interface and no text.

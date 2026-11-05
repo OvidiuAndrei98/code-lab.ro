@@ -1,0 +1,172 @@
+:root {
+  --menu-tab-width: 52px;
+}
+
+/* One assembly carries the panel and its tab; GSAP owns its horizontal travel. */
+.menu-mechanism {
+  --menu-panel-width: 36vw;
+  position: fixed;
+  inset: 0 auto 0 100%;
+  z-index: 50;
+  width: 0;
+  height: 100dvh;
+  overflow: visible;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: transparent;
+}
+
+.menu-backdrop[hidden] {
+  display: none;
+}
+
+.menu-tab {
+  view-transition-name: menu-control;
+  --menu-hit-offset: 0px;
+  --menu-tab-overlap: 0px;
+  --menu-tab-axis: var(
+    --menu-control-axis,
+    calc(var(--site-header-height) / 2)
+  );
+  position: absolute;
+  left: calc(-1 * var(--menu-tab-width) - var(--menu-hit-offset));
+  top: calc(var(--menu-tab-axis) - 22px);
+  z-index: 2;
+  display: block;
+  width: max(44px, var(--menu-tab-width));
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--paper);
+  translate: var(--menu-tab-overlap) 0;
+  pointer-events: auto;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.menu-tab-graphic {
+  position: absolute;
+  left: var(--menu-hit-offset);
+  /* The icon keeps its header axis; only the cap below it grows taller. */
+  top: calc(22px - var(--menu-tab-width) * 25.5 / 72);
+  display: block;
+  width: var(--menu-tab-width);
+  height: calc(var(--menu-tab-width) * 116 / 72);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.menu-tab-face {
+  fill: var(--accent);
+  stroke: none;
+  /* The exposed tail is clickable as well as the independent 44px target. */
+  pointer-events: visiblePainted;
+}
+
+.menu-tab:focus-visible .menu-tab-face {
+  fill: var(--ink);
+}
+
+.menu-tab:focus-visible {
+  color: var(--accent);
+}
+
+.menu-tab,
+.menu-tab * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.menu-tab-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: calc(var(--menu-tab-width) * 2.75 / 72);
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  transform-box: view-box;
+  transform-origin: 40px 25.5px;
+  pointer-events: none;
+}
+
+.menu-tab-icon line {
+  vector-effect: non-scaling-stroke;
+}
+
+.menu-tab:active .menu-tab-icon {
+  opacity: 0.78;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .menu-tab-icon {
+    transition:
+      transform 150ms var(--ease-out),
+      opacity 120ms ease;
+  }
+
+  .menu-tab:active .menu-tab-icon {
+    transform: scale(0.96);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .menu-tab:hover:not(:active) .menu-tab-icon {
+      transform: scale(1.035);
+    }
+  }
+}
+
+.menu-tab:focus-visible {
+  /* Keyboard focus changes the filled face and icon, without adding a frame. */
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 800px) {
+  .menu-mechanism {
+    --menu-panel-width: 58vw;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --menu-tab-width: 44px;
+  }
+
+  .menu-mechanism {
+    /* Reserve the whole face plus breathing room, including native gutters. */
+    --menu-panel-width: min(
+      88vw,
+      calc(var(--menu-viewport-width, 100vw) - var(--menu-tab-width) - 12px)
+    );
+  }
+}
+
+@media (forced-colors: active) {
+  .menu-tab {
+    color: ButtonFace;
+    forced-color-adjust: none;
+  }
+
+  .menu-tab-face {
+    fill: ButtonText;
+  }
+
+  .menu-tab:focus-visible {
+    color: ButtonText;
+  }
+
+  .menu-tab:focus-visible .menu-tab-face {
+    fill: ButtonFace;
+  }
+}

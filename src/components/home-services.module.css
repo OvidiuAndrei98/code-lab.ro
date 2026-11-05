@@ -1,0 +1,332 @@
+﻿.section {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(155px, 12.5vw, 240px) minmax(0, 1fr);
+  gap: clamp(20px, 2.2vw, 44px);
+  padding-block: clamp(65px, 7.5vw, 120px) 70px;
+}
+.context {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+.contextSticky {
+  position: sticky;
+  top: 120px;
+  padding-block: 20px;
+}
+.context h2 {
+  font-size: 13px;
+  font-weight: 500;
+}
+.context p {
+  max-width: 185px;
+  margin-top: 24px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.index {
+  position: relative;
+  display: grid;
+  gap: 3px;
+  margin-block: 40px 28px;
+}
+.index a {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: 12px;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.index a::before {
+  content: "";
+}
+.index a[aria-current] {
+  color: var(--ink);
+}
+.index a:focus-visible {
+  outline-offset: 4px;
+}
+.rail {
+  position: absolute;
+  inset: 22px auto auto 0;
+  width: 24px;
+  height: 95px;
+  pointer-events: none;
+}
+.tick {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  background: var(--line);
+  transform-origin: 0 0;
+}
+.indicator {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+.all {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+  font-size: 12px;
+}
+.all svg {
+  color: var(--accent);
+  width: 18px;
+}
+.sequence {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+.article {
+  padding-block: 28px 74px;
+  scroll-margin-top: 95px;
+}
+.article + .article {
+  border-top: 1px solid var(--line);
+  padding-top: 64px;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(100px, 14.7vw, 240px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 0.8;
+  text-transform: uppercase;
+}
+.title a {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  transition: color 180ms ease;
+}
+.title span {
+  display: block;
+  padding-top: 0.1em;
+  margin-top: -0.02em;
+}
+.article:first-child .title span {
+  white-space: nowrap;
+}
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 35px;
+  align-items: end;
+  margin-top: 36px;
+  padding-left: 25%;
+}
+.detail p {
+  max-width: 350px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.action {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 44px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.action svg {
+  width: 26px;
+  height: 26px;
+  color: var(--accent);
+  transition: transform 180ms var(--ease-out);
+}
+.article:nth-child(2) .title {
+  margin-left: 13%;
+}
+.article:nth-child(2) .title span:nth-child(2) {
+  margin-left: 22%;
+}
+.article:nth-child(2) .detail {
+  padding-left: 0;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 0.6fr);
+}
+.article:nth-child(2) .action {
+  justify-self: end;
+}
+.article:nth-child(3) .title a {
+  width: 100%;
+}
+.article:nth-child(3) .title span:nth-child(2) {
+  margin-left: 45%;
+}
+.article:nth-child(3) .detail {
+  padding-left: 13%;
+}
+@media (hover: hover) and (pointer: fine) {
+  .index a:hover {
+    color: var(--ink);
+  }
+  .title a:hover {
+    color: var(--accent);
+  }
+  .action:hover svg {
+    transform: translate(3px, -3px);
+  }
+}
+@media (max-width: 1100px) {
+  .section {
+    grid-template-columns: 155px minmax(0, 1fr);
+    gap: 20px;
+  }
+  .title {
+    font-size: 14.2vw;
+  }
+  .detail {
+    padding-left: 0;
+    gap: 25px;
+  }
+}
+@media (max-width: 1000px) {
+  .section {
+    display: block;
+    padding-block: 50px 35px;
+  }
+  .contextSticky {
+    position: static;
+    padding: 0 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .context p {
+    margin-top: 0;
+    max-width: 280px;
+  }
+  .index {
+    display: none;
+  }
+  .all {
+    grid-column: 2;
+    align-self: end;
+  }
+  .article {
+    padding-block: 30px 50px;
+  }
+  .article + .article {
+    padding-top: 45px;
+  }
+  .title {
+    font-size: 19vw;
+  }
+  .detail {
+    grid-template-columns: 1fr 1fr;
+    padding-left: 15%;
+    margin-top: 28px;
+  }
+  .detail p {
+    max-width: 300px;
+  }
+  .action {
+    justify-self: end;
+  }
+  .article:nth-child(2) .title {
+    margin-left: 10%;
+  }
+  .article:nth-child(2) .detail {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Compact navigation changes earlier; keep the approved title scale intact. */
+@media (min-width: 901px) and (max-width: 1000px) {
+  .title {
+    font-size: 14.2vw;
+  }
+}
+@media (max-width: 520px) {
+  .section {
+    padding-top: 40px;
+    padding-bottom: 15px;
+  }
+  .contextSticky {
+    gap: 16px;
+    padding-bottom: 25px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  }
+  .context h2 {
+    max-width: 120px;
+    line-height: 1.5;
+  }
+  .context p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .all {
+    grid-column: 1/-1;
+    font-size: 12px;
+  }
+  .title {
+    font-size: 22vw;
+    line-height: 0.82;
+    letter-spacing: -0.015em;
+  }
+  .article:first-child .title {
+    font-size: 20vw;
+  }
+  .article {
+    padding-block: 26px 42px;
+    scroll-margin-top: 85px;
+  }
+  .article + .article {
+    padding-top: 35px;
+  }
+  .detail,
+  .article:nth-child(2) .detail,
+  .article:nth-child(3) .detail {
+    display: block;
+    padding-left: 15%;
+    margin-top: 24px;
+  }
+  .article:nth-child(2) .detail {
+    padding-left: 0;
+    padding-right: 15%;
+  }
+  .article:nth-child(2) .title {
+    margin-left: 0;
+  }
+  .article:nth-child(2) .title span:nth-child(2) {
+    margin-left: 26%;
+  }
+  .article:nth-child(3) .title span:nth-child(2) {
+    margin-left: 45%;
+  }
+  .detail p {
+    font-size: 16px;
+    max-width: 310px;
+  }
+  .action {
+    margin-top: 17px;
+    justify-content: space-between;
+    font-size: 13px;
+    max-width: 310px;
+  }
+}
+@media (max-height: 650px) and (min-width: 1001px) {
+  .contextSticky {
+    top: 65px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .action svg,
+  .title a {
+    transition: none;
+  }
+  .action:hover svg {
+    transform: none;
+  }
+}

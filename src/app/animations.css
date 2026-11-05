@@ -1,0 +1,155 @@
+/* The page and menu share one GSAP tween; CSS never animates their transforms. */
+/* Start the hero on its first paint, before hydration and page-sheet capture.
+   GSAP owns only the outer scroll layers, so setup cannot replay this entrance. */
+@media (prefers-reduced-motion: no-preference) {
+  .identity-fill {
+    --press-start: 0.24;
+    --press-peak: 1.015;
+    animation: identity-press 920ms var(--ease-out) 40ms both;
+  }
+  .identity-letter[data-letter="O"] .identity-fill {
+    --press-start: 0.16;
+    --press-peak: 1.045;
+    animation-delay: 0ms;
+  }
+  .identity-letter[data-letter="D"] .identity-fill {
+    --press-start: 0.28;
+    --press-peak: 0.99;
+    animation-delay: 65ms;
+  }
+  .identity-letter[data-letter="E"] .identity-fill {
+    --press-start: 0.2;
+    --press-peak: 1.025;
+    animation-delay: 25ms;
+  }
+  .identity-letter[data-letter="L"] .identity-fill {
+    --press-start: 0.32;
+    --press-peak: 0.96;
+    animation-delay: 100ms;
+  }
+  .identity-letter[data-letter="A"] .identity-fill {
+    --press-start: 0.14;
+    --press-peak: 1.05;
+    animation-delay: 10ms;
+  }
+  .identity-letter[data-letter="B"] .identity-fill {
+    --press-start: 0.26;
+    --press-peak: 1.005;
+    animation-delay: 55ms;
+  }
+  .identity-top,
+  .identity-bottom {
+    animation: identity-support-enter 650ms var(--ease-out) 380ms both;
+  }
+  .identity-bottom {
+    animation-delay: 460ms;
+  }
+}
+@keyframes identity-press {
+  from {
+    transform: scaleY(var(--press-start));
+  }
+  64% {
+    transform: scaleY(var(--press-peak));
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes identity-support-enter {
+  from {
+    transform: translateY(22px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+::view-transition-group(root) {
+  animation-duration: 750ms;
+}
+::view-transition-old(root) {
+  animation: outgoing-sheet 750ms var(--ease-out) both;
+}
+::view-transition-new(root) {
+  animation: incoming-sheet 750ms var(--ease-sheet) both;
+}
+::view-transition {
+  pointer-events: none;
+}
+/* The headers belong to their page sheets. The single tab has its own layer. */
+::view-transition-group(menu-control) {
+  animation: none;
+  z-index: 10;
+}
+::view-transition-image-pair(menu-control) {
+  isolation: isolate;
+}
+::view-transition-old(menu-control) {
+  display: none;
+}
+::view-transition-new(menu-control) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+.stage-shade {
+  transition: opacity 450ms var(--ease-out);
+}
+.menu-is-open .stage-shade {
+  opacity: 0.18;
+}
+.solid-button,
+.service-choices span {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+.quiet-link svg,
+.case-next svg {
+  transition: transform 220ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .header-nav a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+  .solid-button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .quiet-link:hover svg,
+  .case-next a:hover svg {
+    transform: translate(3px, -3px);
+  }
+}
+@keyframes incoming-sheet {
+  from {
+    transform: translateY(100vh) rotate(2deg) scale(0.95);
+    transform-origin: 50% 100%;
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes outgoing-sheet {
+  to {
+    transform: scale(0.97);
+    opacity: 0.7;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage-shade {
+    transition: none;
+  }
+  .quiet-link svg,
+  .case-next svg {
+    transition: none;
+  }
+  .quiet-link:hover svg,
+  .case-next a:hover svg {
+    transform: none;
+  }
+}

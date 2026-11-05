@@ -1,0 +1,500 @@
+/* A standalone composition for Website-uri, not a template for other services. */
+.website-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  column-gap: 6vw;
+  padding-block: 30px 90px;
+}
+.website-opening {
+  grid-column: 1;
+  grid-row: 1;
+}
+.website-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  font-size: 12px;
+  margin-bottom: 42px;
+}
+.website-breadcrumb > span:last-child {
+  color: var(--muted);
+}
+.website-opening h1 {
+  font-family: var(--font-display);
+  font-size: clamp(68px, 7vw, 118px);
+  font-weight: 500;
+  line-height: 0.84;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.website-title-line {
+  display: block;
+  overflow: clip;
+  padding-top: 0.12em;
+  margin-top: -0.02em;
+}
+.website-title-line > span {
+  display: block;
+}
+.website-title-subline {
+  font-size: 0.72em;
+}
+.website-opening-description {
+  margin-top: 27px;
+  max-width: 340px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.website-contact-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: fit-content;
+  min-height: 48px;
+  margin-top: 23px;
+  font-size: 13px;
+}
+.website-contact-action svg {
+  color: var(--accent);
+}
+.website-opening-observation {
+  margin-top: 75px;
+  padding-bottom: 50px;
+}
+.website-opening-observation h2 {
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  font-weight: 450;
+  max-width: 290px;
+}
+.website-opening-observation p,
+.website-step-copy > p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 350px;
+  margin-top: 22px;
+}
+.website-step {
+  scroll-margin-top: 110px;
+}
+.website-story-visual {
+  margin: 0;
+  min-width: 0;
+  grid-column: 2;
+  grid-row: 1;
+  padding-top: 60px;
+}
+.website-project-context {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+.website-project {
+  margin: 0;
+}
+.website-project-context > span:last-child {
+  flex-shrink: 0;
+}
+.website-focus-frame,
+.website-detail-frame {
+  position: relative;
+  overflow: clip;
+  aspect-ratio: 3 / 2;
+  background: var(--ink);
+}
+.website-focus-canvas,
+.website-detail-canvas {
+  transform-origin: 50% 50%;
+}
+.website-focus-frame .project-media,
+.website-detail-frame .project-media {
+  border-radius: 0;
+}
+.website-project-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-top: 15px;
+  font-size: 12px;
+}
+.website-project-caption > span {
+  color: var(--muted);
+}
+.website-project-caption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 44px;
+}
+.website-project-caption svg {
+  color: var(--accent);
+  width: 19px;
+}
+.website-perspectives {
+  display: none;
+}
+.website-mobile-observation {
+  display: none;
+}
+.website-navigation,
+.website-next-step {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  gap: 6vw;
+  align-items: center;
+  padding-top: 85px;
+}
+.website-perspective-note {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 28px;
+}
+.website-step-copy h2 {
+  font-size: clamp(34px, 3.5vw, 56px);
+  font-weight: 450;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+.website-detail-canvas[data-crop="navigare"] {
+  transform-origin: 50% 0;
+  transform: translateY(8%) scale(1.3);
+}
+.website-focus-frame::after,
+.website-detail-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 18%,
+    rgb(24 25 23 / 0.6) 29%
+  );
+}
+.website-focus-frame:has([data-view="navigare"])::after,
+.website-detail-frame:has([data-crop="navigare"])::after {
+  opacity: 1;
+}
+.website-detail-canvas[data-crop="contact"] {
+  transform: translateY(-27.5%) scale(1.55);
+}
+.website-includes {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  gap: 6vw;
+  border-top: 1px solid var(--line);
+  padding-block: 65px 85px;
+}
+.website-includes-context > span {
+  font-size: 12px;
+}
+.website-includes h2 {
+  font-size: clamp(42px, 4.3vw, 68px);
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  margin-top: 32px;
+  font-weight: 400;
+}
+.website-includes-context > p {
+  color: var(--muted);
+  margin-top: 27px;
+  max-width: 320px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.website-scope {
+  margin: 0;
+}
+.website-scope > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 35px;
+  border-top: 1px solid var(--line);
+  padding-block: 28px;
+}
+.website-scope > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.website-scope dt {
+  font-size: 23px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.website-scope dd {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.website-conversation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 9vw;
+  padding-block: 75px 85px;
+  background: var(--ink);
+  color: var(--paper);
+  align-items: end;
+}
+.website-conversation h2 {
+  font-family: var(--font-display);
+  font-size: clamp(96px, 12vw, 190px);
+  line-height: 0.82;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+}
+.website-conversation p {
+  max-width: 360px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #c6c8bf;
+}
+.website-conversation-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 54px;
+  margin-top: 30px;
+  padding: 14px 18px;
+  gap: 30px;
+  width: fit-content;
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+}
+.website-more-projects {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 44px;
+  width: fit-content;
+  margin-top: 22px;
+  font-size: 13px;
+}
+.website-contact-action svg,
+.website-conversation-action svg,
+.website-more-projects svg {
+  transition: transform 220ms var(--ease-out);
+}
+@media (min-width: 1000px) and (min-height: 760px) and (prefers-reduced-motion: no-preference) {
+  .website-story-visual {
+    grid-row: 1 / 4;
+  }
+  .website-visual-sticky {
+    position: sticky;
+    top: 110px;
+    max-width: calc((100svh - 270px) * 1.5);
+    margin-left: auto;
+  }
+  .website-navigation,
+  .website-next-step {
+    grid-column: 1;
+    display: block;
+    padding-block: 100px 70px;
+  }
+  .website-detail-frame {
+    display: none;
+  }
+  .website-focus-canvas {
+    transition: transform 650ms var(--ease-sheet);
+  }
+  .website-focus-canvas[data-view="navigare"] {
+    transform-origin: 50% 0;
+    transform: translateY(8%) scale(1.3);
+  }
+  .website-focus-canvas[data-view="contact"] {
+    transform: translateY(-27.5%) scale(1.55);
+  }
+  .website-perspectives {
+    display: flex;
+    gap: 26px;
+    margin-top: 14px;
+  }
+  .website-perspectives a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    min-height: 44px;
+    color: var(--muted);
+  }
+  .website-perspectives a > span {
+    width: 14px;
+    height: 2px;
+    background: var(--line);
+  }
+  .website-perspectives [aria-current] {
+    color: var(--ink);
+  }
+  .website-perspectives [aria-current] > span {
+    background: var(--accent);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .website-breadcrumb a:hover,
+  .website-project-caption a:hover,
+  .website-more-projects:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+  .website-contact-action:hover svg,
+  .website-conversation-action:hover svg,
+  .website-more-projects:hover svg {
+    transform: translate(3px, -3px);
+  }
+}
+@media (max-width: 999px) {
+  .website-story {
+    column-gap: 35px;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    padding-top: 25px;
+  }
+  .website-opening h1 {
+    font-size: 7.8vw;
+  }
+  .website-opening-observation {
+    margin-top: 40px;
+  }
+  .website-story-visual {
+    padding-top: 55px;
+  }
+  .website-project-caption {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .website-navigation,
+  .website-next-step {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 35px;
+    padding-top: 55px;
+  }
+  .website-includes {
+    column-gap: 40px;
+  }
+  .website-scope > div {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .website-conversation {
+    gap: 45px;
+  }
+}
+@media (max-width: 700px) {
+  .website-story {
+    display: block;
+    padding-block: 25px 45px;
+  }
+  .website-breadcrumb {
+    margin-bottom: 30px;
+  }
+  .website-opening h1 {
+    font-size: clamp(72px, 19vw, 125px);
+  }
+  .website-opening-description {
+    font-size: 17px;
+    max-width: 450px;
+    margin-top: 25px;
+  }
+  .website-contact-action {
+    margin-top: 18px;
+  }
+  .website-opening-observation {
+    display: none;
+  }
+  .website-story-visual {
+    padding-top: 30px;
+  }
+  .website-project-context {
+    font-size: 11px;
+    margin-bottom: 15px;
+  }
+  .website-project-caption {
+    font-size: 12px;
+    margin-top: 12px;
+  }
+  .website-project-caption > span {
+    display: none;
+  }
+  .website-mobile-observation {
+    display: block;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 480px;
+  }
+  .website-navigation,
+  .website-next-step {
+    display: block;
+    padding-top: 45px;
+  }
+  .website-step-copy h2 {
+    font-size: clamp(38px, 9vw, 55px);
+  }
+  .website-perspective-note {
+    margin-bottom: 22px;
+  }
+  .website-step-copy > p {
+    margin-top: 22px;
+    max-width: 480px;
+  }
+  .website-detail-frame {
+    margin-top: 28px;
+  }
+  .website-includes {
+    display: block;
+    padding-block: 40px 45px;
+  }
+  .website-includes h2 {
+    font-size: 48px;
+    margin-top: 25px;
+  }
+  .website-includes-context > p {
+    max-width: 450px;
+    margin-top: 22px;
+  }
+  .website-scope {
+    margin-top: 36px;
+  }
+  .website-scope > div {
+    padding-block: 23px;
+  }
+  .website-scope dt {
+    font-size: 24px;
+  }
+  .website-conversation {
+    display: block;
+    padding-block: 45px 40px;
+  }
+  .website-conversation h2 {
+    font-size: 22vw;
+  }
+  .website-conversation p {
+    margin-top: 32px;
+    max-width: 440px;
+  }
+  .website-conversation-action {
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .website-contact-action svg,
+  .website-conversation-action svg,
+  .website-more-projects svg {
+    transition: none;
+    transform: none !important;
+  }
+}

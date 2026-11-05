@@ -1,0 +1,116 @@
+.page {
+  background: var(--paper);
+}
+
+.introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 5vw;
+  align-items: end;
+  padding-block: 24px 30px;
+}
+
+.introduction h1 {
+  font-family: var(--font-display);
+  font-size: clamp(96px, 9.5vw, 156px);
+  font-weight: 500;
+  line-height: 0.85;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  padding-top: 0.1em;
+  text-indent: -0.035em;
+}
+
+.introduction p {
+  max-width: 29ch;
+  padding-bottom: 5px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.closing {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 5vw;
+  padding-block: 48px 54px;
+}
+
+.closing h2 {
+  max-width: 18ch;
+  font-size: clamp(32px, 3.8vw, 60px);
+  line-height: 1.1;
+  font-weight: 450;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  justify-self: start;
+  min-height: 44px;
+  font-size: 0.9375rem;
+}
+
+.contactLink span {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 5px;
+}
+
+.contactLink svg {
+  color: var(--accent);
+  width: 23px;
+  height: 23px;
+}
+
+.contactLink:focus-visible {
+  outline-color: var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contactLink:hover span {
+    text-decoration-color: currentColor;
+  }
+
+  .contactLink:hover svg {
+    transform: translate(3px, -3px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contactLink span {
+    transition: text-decoration-color 160ms ease;
+  }
+
+  .contactLink svg {
+    transition: transform 180ms var(--ease-out);
+  }
+}
+
+@media (max-width: 760px) {
+  .introduction {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding-block: 24px 28px;
+  }
+
+  .introduction h1 {
+    font-size: clamp(82px, 17vw, 120px);
+  }
+
+  .introduction p {
+    max-width: 32ch;
+    padding-bottom: 0;
+  }
+
+  .closing {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding-block: 36px 42px;
+  }
+}
