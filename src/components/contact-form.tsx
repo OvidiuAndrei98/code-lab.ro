@@ -3,32 +3,24 @@
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Arrow } from "./icons";
 import { BudgetSelect } from "./budget-select";
+import {
+  contactEmail,
+  contactLimits,
+  contactServiceOptions as serviceOptions,
+  formatContactBrief,
+  validateContact,
+  type ContactFields,
+  type ContactErrors as Errors,
+} from "@/lib/contact";
 
-const serviceOptions = [
-  {
-    id: "website",
-    value: "Website",
-    hint: "Ce face afacerea ta și ce trebuie să comunice site-ul?",
-  },
-  {
-    id: "ecommerce",
-    value: "Magazin online",
-    hint: "Ce produse vinzi? Există deja un magazin pe care vrei să-l schimbăm?",
-  },
-  {
-    id: "aplicatii",
-    value: "Aplicație web",
-    hint: "Ce proces vrei să organizezi și cine va folosi aplicația?",
-  },
-  {
-    id: "indecis",
-    value: "Nu știu încă",
-    hint: "De unde pornește ideea și ce problemă ai vrea să rezolvi?",
-  },
-] as const;
+type Field = keyof ContactFields;
+const fieldOrder: Field[] = ["service", "message", "budget", "name", "email"];
 
-type Field = "service" | "message" | "name" | "email";
-type Errors = Partial<Record<Field, string>>;
+function readFields(data: FormData): ContactFields {
+  return Object.fromEntries(
+    fieldOrder.map((field) => [field, String(data.get(field) || "").trim()]),
+  ) as ContactFields;
+}
 
 function BriefField({
   id,
@@ -72,20 +64,20 @@ function BriefField({
   );
 }
 
-export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
+export function ContactForm() {
   const [service, setService] = useState("");
   const [errors, setErrors] = useState<Errors>({});
   const [stage, setStage] = useState<"editing" | "preparing" | "ready">(
     "editing",
   );
   const [failure, setFailure] = useState("");
-  const [brief, setBrief] = useState({ text: "", url: "" });
+  const [brief, setBrief] = useState("");
   const [downloaded, setDownloaded] = useState(false);
   const form = useRef<HTMLFormElement>(null);
   const result = useRef<HTMLHeadingElement>(null);
   const message = useRef<HTMLTextAreaElement>(null);
   const busy = useRef(false);
-  const preparedUrl = useRef("");
+  const submission = useRef<{ payload: string; id: string } | null>(null);
   const attempts = useRef(false);
   const hint =
     serviceOptions.find((item) => item.value === service)?.hint ||
@@ -95,32 +87,13 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
     const context = new URLSearchParams(location.search).get("service");
     const option = serviceOptions.find((item) => item.id === context);
     if (option) setService(option.value);
-    return () => {
-      if (preparedUrl.current) URL.revokeObjectURL(preparedUrl.current);
-    };
   }, []);
   useEffect(() => {
     if (stage === "ready") result.current?.focus();
   }, [stage]);
 
   function fieldError(field: Field, data: FormData) {
-    const value = String(data.get(field) || "").trim();
-    if (
-      field === "service" &&
-      !serviceOptions.some((item) => item.value === value)
-    )
-      return "Alege un serviciu sau «Nu știu încă».";
-    if (field === "message" && !value)
-      return "Scrie câteva cuvinte despre ce ai în minte.";
-    if (field === "name" && !value) return "Scrie cum te numești.";
-    if (field === "email") {
-      if (!value) return "Scrie adresa la care te putem contacta.";
-      const input = form.current?.elements.namedItem(
-        "email",
-      ) as HTMLInputElement | null;
-      if (input?.validity.typeMismatch) return "Verifică adresa de email.";
-    }
-    return undefined;
+    return validateContact(readFields(data))[field];
   }
   function validateField(field: Field) {
     if (!form.current) return;
@@ -137,15 +110,11 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
     if (busy.current) return;
     attempts.current = true;
     const data = new FormData(event.currentTarget);
-    const nextErrors: Errors = {};
-    const order: Field[] = ["service", "message", "name", "email"];
-    order.forEach((field) => {
-      const error = fieldError(field, data);
-      if (error) nextErrors[field] = error;
-    });
+    const fields = readFields(data);
+    const nextErrors = validateContact(fields);
     setErrors(nextErrors);
     setFailure("");
-    const first = order.find((field) => nextErrors[field]);
+    const first = fieldOrder.find((field) => nextErrors[field]);
     if (first) {
       form.current?.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
@@ -153,19 +122,47 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
     busy.current = true;
     setStage("preparing");
     try {
-      const text = `Salut, CODELAB!\n\nNume: ${String(data.get("name")).trim()}\nEmail: ${String(data.get("email")).trim()}\nProiect: ${data.get("service")}\nBuget orientativ: ${data.get("budget")}\n\n${String(data.get("message")).trim()}\n`;
-      const file = new Blob([text], { type: "text/plain;charset=utf-8" });
-      // Await the actual local file; there is no simulated send or artificial delay.
-      await file.arrayBuffer();
-      const url = URL.createObjectURL(file);
-      if (preparedUrl.current) URL.revokeObjectURL(preparedUrl.current);
-      preparedUrl.current = url;
-      setBrief({ text, url });
+      const payload = JSON.stringify({
+        ...fields,
+        website: String(data.get("website") || ""),
+      });
+      if (submission.current?.payload !== payload)
+        submission.current = { payload, id: crypto.randomUUID() };
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...JSON.parse(payload),
+          submissionId: submission.current.id,
+        }),
+        signal: AbortSignal.timeout(20000),
+      });
+      const responseData = await response.json();
+      if (!response.ok || responseData.success !== true) {
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+          const invalid = fieldOrder.find(
+            (field) => responseData.errors[field],
+          );
+          requestAnimationFrame(() =>
+            form.current
+              ?.querySelector<HTMLElement>(`[name="${invalid}"]`)
+              ?.focus(),
+          );
+        }
+        throw new Error(
+          responseData.error ||
+            "Mesajul nu a putut fi trimis. Încearcă din nou.",
+        );
+      }
+      setBrief(formatContactBrief(fields));
       setDownloaded(false);
       setStage("ready");
-    } catch {
+    } catch (error) {
       setFailure(
-        "Brief-ul nu a putut fi pregătit. Datele sunt păstrate. Încearcă din nou.",
+        error instanceof Error && error.name === "Error"
+          ? error.message
+          : `Mesajul nu a putut fi trimis. Datele sunt păstrate. Încearcă din nou sau scrie-ne la ${contactEmail}.`,
       );
       setStage("editing");
     } finally {
@@ -174,9 +171,13 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
   }
   function download() {
     let link: HTMLAnchorElement | null = null;
+    let url = "";
     try {
+      url = URL.createObjectURL(
+        new Blob([brief], { type: "text/plain;charset=utf-8" }),
+      );
       link = document.createElement("a");
-      link.href = brief.url;
+      link.href = url;
       link.download = "brief-codelab.txt";
       document.body.append(link);
       link.click();
@@ -188,6 +189,7 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
       );
     } finally {
       link?.remove();
+      if (url) setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
   }
 
@@ -202,6 +204,16 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
         hidden={stage === "ready"}
         aria-busy={stage === "preparing"}
       >
+        <div hidden aria-hidden="true">
+          <label htmlFor="contact-website">Website</label>
+          <input
+            id="contact-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
         <fieldset
           className="brief-services"
           disabled={stage === "preparing"}
@@ -277,6 +289,7 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
             name="message"
             placeholder="Am în minte…"
             rows={5}
+            maxLength={contactLimits.message}
             required
             aria-invalid={Boolean(errors.message)}
             aria-describedby={`contact-service-hint${errors.message ? " contact-message-error" : ""}`}
@@ -293,7 +306,7 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
           id="contact-budget"
           label="Buget orientativ"
           optional
-          validation={false}
+          error={errors.budget}
           className="brief-budget-field"
           disabled={stage === "preparing"}
         >
@@ -318,6 +331,7 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
                 id="contact-name"
                 name="name"
                 autoComplete="name"
+                maxLength={contactLimits.name}
                 required
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={
@@ -340,6 +354,7 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
                 type="email"
                 inputMode="email"
                 autoComplete="email"
+                maxLength={contactLimits.email}
                 autoCapitalize="none"
                 spellCheck={false}
                 placeholder="nume@domeniu.ro"
@@ -356,9 +371,9 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
         </fieldset>
         <div className="brief-form-bottom">
           <p>
-            Pregătești un fișier descărcabil.
+            Trimitem brief-ul către CODELAB.
             <br />
-            Pagina nu trimite mesaje.
+            Îți răspundem pe email.
           </p>
           <button
             type="submit"
@@ -366,9 +381,7 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
             disabled={stage === "preparing"}
           >
             <span>
-              {stage === "preparing"
-                ? "Pregătim fișierul…"
-                : "Pregătește brief-ul"}
+              {stage === "preparing" ? "Se trimite…" : "Trimite brief-ul"}
             </span>
             <Arrow />
           </button>
@@ -379,15 +392,13 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
         data-contact-result
         hidden={stage !== "ready"}
       >
-        <span className="brief-result-note">
-          Fișier local · gata de descărcat
-        </span>
+        <span className="brief-result-note">Mesaj trimis · CODELAB</span>
         <h2 ref={result} tabIndex={-1}>
-          Brief-ul e pregătit.
+          Mulțumim. Am primit brief-ul.
         </h2>
         <p>
-          Informațiile sunt adunate într-un fișier text. Descarcă-l, verifică-l
-          și alege când îl trimiți.
+          Îți răspundem pe adresa de email din formular. Poți descărca o copie a
+          brief-ului pentru tine.
         </p>
         <div className="brief-result-summary">
           <span id="brief-preview-title">Despre proiectul tău</span>
@@ -397,36 +408,27 @@ export function ContactForm({ contactEmail = "" }: { contactEmail?: string }) {
             tabIndex={0}
             aria-labelledby="brief-preview-title"
           >
-            <p>{brief.text.split("\n\n").slice(2).join("\n\n").trim()}</p>
+            <p>{brief.split("\n\n").slice(2).join("\n\n").trim()}</p>
           </div>
         </div>
         <button className="brief-primary" type="button" onClick={download}>
           {downloaded ? "Descarcă din nou" : "Descarcă brief-ul"}
           <Arrow />
         </button>
-        {contactEmail && (
-          <a
-            className="brief-email-action"
-            href={`mailto:${contactEmail}?subject=${encodeURIComponent("Un proiect nou — CODELAB")}&body=${encodeURIComponent(brief.text)}`}
-          >
-            Deschide în aplicația de email <Arrow diagonal />
-          </a>
-        )}
         <button
           className="brief-edit"
           type="button"
           onClick={() => {
+            submission.current = null;
             setStage("editing");
             setFailure("");
             requestAnimationFrame(() => message.current?.focus());
           }}
         >
-          Editează brief-ul <span aria-hidden="true">↶</span>
+          Editează și trimite din nou <span aria-hidden="true">↶</span>
         </button>
         <p className="brief-result-footnote">
-          {contactEmail
-            ? "Linkul de email deschide aplicația ta. Trimiterea rămâne alegerea ta."
-            : "Brief-ul rămâne la tine. Trimiterea directă nu este disponibilă în această versiune."}
+          Pentru completări, ne poți scrie la {contactEmail}.
         </p>
       </div>
       <p className="brief-generation-error" role="alert">

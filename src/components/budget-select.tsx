@@ -1,15 +1,8 @@
 "use client";
 
 import { Select } from "@base-ui/react/select";
+import { contactBudgetOptions as budgetOptions } from "@/lib/contact";
 import styles from "./budget-select.module.css";
-
-const budgetOptions = [
-  "Îl stabilim împreună",
-  "Sub 2.000 €",
-  "2.000 – 5.000 €",
-  "5.000 – 10.000 €",
-  "Peste 10.000 €",
-] as const;
 
 type BudgetSelectProps = {
   id: string;

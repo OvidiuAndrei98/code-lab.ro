@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
+    "test:contact": "node --test tests/contact.test.mjs",
     "format": "prettier --write src *.ts *.mjs *.json README.md"
   },
   "dependencies": {
