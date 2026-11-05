@@ -1,6 +1,0 @@
-interface:
-  display_name: "Cosmo studio design"
-  short_description: "Typography-led studio layouts from the Cosmo reference"
-  default_prompt: "Use $cosmo-studio-design to create an original typography-led studio website from the recorded composition."
-policy:
-  allow_implicit_invocation: true

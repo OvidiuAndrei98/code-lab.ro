@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "check:browser": "node scripts/verify.mjs",
-    "format": "prettier --write src scripts *.ts *.mjs *.json README.md"
+    "format": "prettier --write src *.ts *.mjs *.json README.md"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -22,8 +21,6 @@
     "react-dom": "19.3.1"
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.14.0",
-    "@playwright/test": "1.64.1",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "26.6.5",
     "@types/react": "19.3.0",

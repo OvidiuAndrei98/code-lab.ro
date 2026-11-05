@@ -8,3 +8,14 @@ dist/
 artifacts/
 .npm-cache/
 next-env.d.ts
+
+# Local agent instructions, skills and verification tools
+/AGENTS.md
+/.agents/
+/.codex/
+/skills/
+/scripts/
+
+# Working asset source and generation notes
+/public/images/shop/sketchbook-source.png
+/public/images/shop/ASSET.md
