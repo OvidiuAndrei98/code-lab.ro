@@ -12,6 +12,7 @@
     --press-peak: 1.045;
     animation-delay: 0ms;
   }
+
   .identity-letter[data-letter="D"] .identity-fill {
     --press-start: 0.28;
     --press-peak: 0.99;
