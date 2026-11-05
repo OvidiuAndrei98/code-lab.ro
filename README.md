@@ -18,6 +18,13 @@ npm run build
 npm run start
 ```
 
+## Deploy pe Vercel
+
+Fișierul `vercel.json` configurează presetul Next.js, comanda `npm run build` și
+directorul de build `.next`, suprascriind setările proiectului din Vercel.
+Directorul rădăcină al proiectului trebuie să fie cel care conține `package.json`
+și `vercel.json`. După publicarea modificărilor în Git, pornește un nou deployment.
+
 ## Configurare
 
 Variabilele disponibile sunt documentate în `.env.example`.
