@@ -111,7 +111,8 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from:
-          process.env.RESEND_FROM_EMAIL?.trim() || `CODELAB <${contactEmail}>`,
+          process.env.RESEND_FROM_EMAIL?.trim() ||
+          "CODELAB <contact@updates.code-lab.ro>",
         to: [contactEmail],
         reply_to: fields.email,
         subject: `Proiect nou: ${fields.service} — ${fields.name}`,

@@ -171,7 +171,7 @@ test("contact API validates requests and sends only through the server", async (
         "Bearer test-key-not-a-real-credential",
       );
       assert.deepEqual(email.payload.to, ["contact@code-lab.ro"]);
-      assert.equal(email.payload.from, "CODELAB <contact@code-lab.ro>");
+      assert.equal(email.payload.from, "CODELAB <contact@updates.code-lab.ro>");
       assert.equal(email.payload.reply_to, submission.email);
       assert.match(email.payload.subject, /Website/);
       assert.ok(email.payload.text.includes(submission.message));

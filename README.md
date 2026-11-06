@@ -40,8 +40,8 @@ mesajele duplicate.
   în care vrei să funcționeze formularul, apoi pornește un nou deployment.
 - Pentru dezvoltare locală, copiază `.env.example` în `.env.local` și completează
   cheia. Nu folosi prefixul `NEXT_PUBLIC_` pentru cheia Resend.
-- Domeniul `code-lab.ro` trebuie să fie verificat pentru trimitere în Resend.
-  Expeditorul implicit este `CODELAB <contact@code-lab.ro>`; îl poți schimba prin
+- Domeniul `updates.code-lab.ro` trebuie să fie verificat pentru trimitere în Resend.
+  Expeditorul implicit este `CODELAB <contact@updates.code-lab.ro>`; îl poți schimba prin
   `RESEND_FROM_EMAIL` cu o adresă de pe alt domeniu verificat. Destinatarul rămâne
   `contact@code-lab.ro`.
 
